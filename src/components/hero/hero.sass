@@ -7,9 +7,12 @@
 
   .wrapper
     max-width: 1366px
-    padding-inline: 0.6em
+    padding-inline-start: 4em
     height: 100%
     margin: 0 auto
+
+    @include mobile
+      padding-inline-start: 0.6em
   
   .text-container
     width: 70%
