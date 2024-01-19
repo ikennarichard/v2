@@ -20,7 +20,6 @@ const Pulse = () => {
     function initialPlay(e) {
       if (e.target.classList.contains('pulsing-ui') == false) {
         if(played) {
-          console.log('yes')
           return null;
         } else {
           audio.play()

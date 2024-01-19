@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Links from './links/Links';
 import ToggleButton from './toggleButton/ToggleButton';
 import './sidebar.sass';
@@ -24,6 +24,22 @@ const variants = {
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+
+    function closeNav(e) {
+      const sidebar = document.querySelector('.sidebar');
+      if (!sidebar.contains(e.target)) {
+        setOpen(false);
+      }
+    }
+
+    document.body.addEventListener('click', closeNav);
+
+    return () => {
+      document.body.removeEventListener('click', closeNav);
+    }
+  }, [])
 
   return (
     <motion.div 
