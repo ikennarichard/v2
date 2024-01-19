@@ -1,0 +1,117 @@
+@import '../../media'
+
+$paradise-pink: #E35461
+
+.about
+  height: 100%
+
+  @include mobile
+    display: grid
+    align-items: center
+
+  .wrapper
+    display: grid
+    grid-template-columns: repeat(2, auto)
+    place-items: center
+    height: 100%
+
+    @include mobile
+      display: flex
+      flex-direction: column-reverse
+      padding-inline-start: 0.9em
+      margin-block-start: 1em
+      gap: 18px
+      height: auto
+
+    .details
+      padding-block-start: 1em
+
+      @include mobile
+        padding-block-start: 0
+      
+      h2
+        font-size: 4rem
+        width: fit-content
+
+        @include mobile
+          text-align: center
+          width: 100%
+      
+    .info
+      display: flex
+      flex-direction: column
+      gap: 2em
+      margin-inline-start: 2em
+      align-self: center
+
+      @include mobile
+        width: 100%
+        align-items: center
+        margin: 0
+
+      ul
+        display: flex
+        flex-wrap: wrap
+        gap: 6px
+        max-width: 60%
+
+        @include mobile
+          display: none
+
+        li
+          list-style: none
+          border-radius: 18px
+          padding: 0.3em
+          padding-inline: 0.6em
+          background-color: rgb(23,23,23)
+          p
+            font-size: 0.9rem
+            font-weight: 700
+            color: white
+          
+      h2
+        font-size: 1.3rem
+        font-weight: 700
+        text-decoration: underline
+        padding: 0.3em
+
+.text
+  width: 80%
+  display: flex
+  flex-direction: column
+  gap: 6px
+
+  @include mobile
+    width: 94%
+    text-align: center
+  
+  h3
+    font-weight: 520
+
+    @include mobile
+      font-size: 1.2rem
+  
+  p
+    font-weight: 400
+    margin-block-start: 0.6em
+
+.resume-link
+  display: inline-block
+  width: fit-content
+
+.get-resume
+  display: flex
+  align-items: center
+  gap: 3px
+  appearance: none
+  outline: none
+  border: 1px solid black
+  text-align: left
+  color: black
+  width: fit-content
+  padding: 0.9em
+  text-transform: uppercase
+  background: none
+  cursor: pointer
+  font-size: 1rem
+  font-weight: 600

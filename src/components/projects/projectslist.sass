@@ -1,0 +1,93 @@
+@import '../../media'
+
+.project-container
+  position: relative
+
+.progress-bar
+  background-color: black
+  position: sticky
+  top: 0
+  left: 0
+  width: 100%
+  height: 6px
+  margin-block-end: 3px
+
+.project-card
+  display: flex
+  align-items: center
+  justify-content: center
+  
+  @include mobile
+    flex-direction: column
+
+  .image
+    object-fit: cover
+    max-width: 350px
+    height: 400px
+    filter: grayscale(100%)
+    transition: filter 0.1s ease-in-out
+    border-radius: 6px 0 0 6px
+  
+    @include mobile
+      object-position: 0% 0%
+      min-width: 350px
+      height: 300px
+      border-radius: 6px 6px 0 0 
+
+  .image:hover
+    filter: grayscale(0)
+
+  .details
+    display: flex
+    flex-direction: column
+    border-radius: 0 6px 6px 0
+    gap: 10px
+    max-width: 50%
+    height: 400px
+    color: white
+    padding: 18px
+    background-color: rgb(22,22,22)
+
+    @include mobile
+      max-width: 350px
+      height: auto
+      border-radius: 0 0 6px 6px 
+
+    h2
+      font-size: 3rem
+
+    .buttons
+      display: flex
+      flex-direction: column
+      gap: 12px
+      
+
+    button
+      position: relative
+      appearance: none
+      font-size: 2rem
+      color: white
+      background: none
+      border: none
+      outline: none
+      width: fit-content
+      cursor: pointer
+      transition: transform 0.3s ease-in
+
+    button:hover
+      transform: translate3d(1px, 0, 0)
+    
+    .source:after, .live-demo:after
+      content: ''
+      position: absolute
+      right: 0
+      left: 9px
+      bottom: 10px
+      transform: scaleX(0)
+      border: 3px solid tomato
+      transform-origin: left
+      transition: transform 0.3s ease-in-out
+    
+    .source:hover:after, .live-demo:hover:after
+      transform: scaleX(1)
+      

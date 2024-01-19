@@ -1,0 +1,86 @@
+@import '../../media'
+
+.contact
+  position: relative
+  padding-inline: 3em
+  display: flex
+  align-items: center
+  gap: 30px
+  height: 100vh
+  max-width: 1366px
+
+  @include mobile
+    flex-direction: column
+    justify-content: center
+    gap: 20px
+  
+  .text-container
+    flex: 1
+    display: flex
+    flex-direction: column
+    gap: 30px
+    
+    @include mobile
+      flex: 0
+      width: 100vw
+      gap: 10px
+      text-align: center
+      padding-block-start: 0.6em
+
+    h1
+      font-size: 3rem
+      width: 70%
+      font-weight: 500
+      line-height: 50px
+
+      @include mobile
+        font-size: 2.6rem
+        width: 100%
+      
+    .contact-item
+      h2
+        font-size: 1.6rem
+        font-weight: bold
+    
+    .socials
+      @include mobile
+        display: none
+  
+  .form-container
+    flex: 1
+    @include mobile
+      flex: 0
+      width: 90vw
+
+    form
+      display: flex
+      flex-direction: column
+      gap: 0.6em
+
+      @include mobile
+       max-width: 80%
+       margin: 0 auto
+
+      input, textarea
+        padding: 20px
+        background-color: transparent
+        border: 0.3px solid rgb(22,22,22)
+        outline: none
+        color: black
+        font-size: 1rem
+        border-radius: 3px
+      
+      textarea
+        resize: none
+      
+      button
+        padding: 9px
+        border: none
+        color: white
+        background-color: rgb(30,30,30)
+        cursor: pointer
+        font-size: 1.2rem
+        font-weight: bold
+
+::placeholder
+  font-weight: bold
