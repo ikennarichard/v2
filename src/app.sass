@@ -1,3 +1,4 @@
+@import './media'
 // variables
 $white-smoke: #F5F5F5
 $smoky-black: #100C08
@@ -13,16 +14,27 @@ $oxygen: 'Oxygen', sans-serif
 html
   scroll-behavior: smooth
   scroll-snap-type: y mandatory
+  
+  @include mobile
+  @include tablet
+      scroll-snap-type: none
 
 body
   background-color: $white-smoke
   color: $smoky-black
   font-size: 1.125rem
+  overflow-y: hidden
+  @include mobile
+  @include tablet
+    overflow-y: scroll
 
 section
   height: 100vh
   scroll-snap-align: center
   overflow: hidden
+  @include mobile
+  @include tablet
+    scroll-snap-align: none
   
 a
   text-decoration: none
