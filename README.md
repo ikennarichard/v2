@@ -13,7 +13,7 @@
 
 The second iteration of my personal webisite built with React.
 
-> Live demo [_here_]().
+> Live demo [_here_](https://ikennarichard.vercel.app).
 
 ## Technologies Used
 
