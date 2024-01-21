@@ -40,7 +40,7 @@ const About = () => {
             <li><p>Agile kanban development process</p></li>
             <li><p>RESTFul API</p></li>
           </ul>
-          <a href="images/Ikenna_Richard_Resume.pdf" target="_blank" rel="noopener noreferrer" download="" className='resume-link'>
+          <a href="Ikenna_Richard_Resume.pdf" target="_blank" rel="noopener noreferrer" download="" className='resume-link'>
             <button className='get-resume' type="button">
 							Get my CV
 						</button>
