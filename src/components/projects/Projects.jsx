@@ -27,7 +27,7 @@ const Project = () => {
         initial='initial' 
         whileInView='animate'>
         <div className='heading-container'>
-          <motion.h2 className='project-heading' variants={variants}>Projects</motion.h2>
+          <motion.h2 className='project-heading' variants={variants}>Selected Projects</motion.h2>
 
           <motion.div variants={variants} className='links-list'>
             <ul>
