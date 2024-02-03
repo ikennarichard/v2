@@ -7,7 +7,7 @@ import Project from './components/projects/Projects';
 import ProjectList from './components/projects/ProjectList';
 import Contact from './components/contact/Contact';
 import About from './components/about/About';
-import Footer from './components/Footer';
+import Footer from './components/footer/Footer';
 import './app.sass'
 
 
