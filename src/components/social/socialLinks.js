@@ -1,7 +1,7 @@
 export const socialLinks = [
   {
     platform: 'medium',
-    icon: 'icons/PhMediumLogoFill.svg',
+    icon: 'icons/MdiMedium.svg',
     href: 'https://medium.com/@oguejioforrichard',
   },
   {
