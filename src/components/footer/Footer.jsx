@@ -41,7 +41,7 @@ const Footer = () => {
      }}
      className="date"
    >
-     <i>©2023--PRESENT</i>
+     <i>©2023/PRESENT</i>
    </span>
  );
 }
