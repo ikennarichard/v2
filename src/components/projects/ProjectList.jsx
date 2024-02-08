@@ -32,7 +32,10 @@ const Single = ({ item }) => {
             <button className="source">source
             </button>
           </a>
-          <button className="live-demo">live demo</button>
+          <a href={item.live_demo} rel="noreferrer" target="_blank">
+            <button className="live-demo">live-demo
+            </button>
+          </a>
         </div>
       </div>
     </motion.section>
