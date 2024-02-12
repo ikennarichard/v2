@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import Pulse from './components/pulse/Pulse';
-import SplashScreen from './components/splash/SplashScreen';
+import SplashScreen from './components/Splash/SplashScreen';
 import NavBar from './components/navBar/NavBar';
 import Hero from './components/hero/Hero';
 import Project from './components/projects/Projects';

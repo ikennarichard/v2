@@ -13,14 +13,13 @@ const ThemeToggle = () => {
   };
   const variants = {
     open: {
-      clipPath: ['circle(0% at 110pxpx 50px)', 'circle(150vw at 50px 50px)'],
-      visibility: 'hidden',
+      clipPath: ['circle(0% at 110px 50px)', 'circle(200vw at 50px 50px)'],
+      opacity: 0.1,
       transition: {
-        type: 'spring',
-        stiffness: 280,
+        stiffness: 100,
         damping: 30,
-        visibility: { delay: 0.29 }
-      }
+      },
+      transitionEnd: { visibility: 'hidden'}
     },
     closed: {
       clipPath:  ['circle(100vw at 50px 50px)', 'circle(0% at 110px 50px)'],
