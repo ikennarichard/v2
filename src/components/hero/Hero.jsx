@@ -1,4 +1,6 @@
 import './hero.sass';
+import { useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeContext';
 import { motion } from 'framer-motion';
 
 const textVariants = {
@@ -32,6 +34,7 @@ const sliderVariants = {
 }
 
 const Hero = () => {
+  const { isDarkMode } = useContext(ThemeContext);
   return (
     <div className="hero">
       <div className="wrapper">
@@ -46,8 +49,19 @@ const Hero = () => {
           <motion.p variants={textVariants}>
             Freelance Software Engineer
           </motion.p>
-          <motion.div className='buttons' variants={textVariants}>
-            <a href="#contact"><motion.button variants={textVariants}>GET IN TOUCH</motion.button></a>
+          <motion.div 
+            className={`buttons 
+            ${isDarkMode ?  'border-dark' : null}`}
+            variants={textVariants}
+          >
+            <a href="#contact">
+              <motion.button 
+                variants={textVariants}
+                className={isDarkMode ?  'text-dark' : null}
+              >
+                GET IN TOUCH
+              </motion.button>
+            </a>
           </motion.div>
         </motion.div>
       </div>

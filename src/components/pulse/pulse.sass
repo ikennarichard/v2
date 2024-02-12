@@ -1,3 +1,4 @@
+@import '../../styles/mixins'
 .site-volume
   position: fixed
   right: 45px
@@ -16,6 +17,7 @@
     opacity: 1
 
 .site-volume::before
+  @include applyBackgroundColors(white)
   position: absolute
   content: ""
   background-color: black
@@ -48,6 +50,7 @@
   opacity: 0
 
 .pulsing-ui:before, .pulsing-ui:after
+  @include applyBorderColors(white)
   position: absolute
   top: 50%
   left: 50%

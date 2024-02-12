@@ -38,6 +38,7 @@ const Links = () => {
             href={`#${link}`}
             key={`#${link}`}
             variants={itemVariants}
+            className="nav-link"
           >
             {link}
           </motion.a>

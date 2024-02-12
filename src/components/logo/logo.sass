@@ -1,4 +1,4 @@
-@import '../../media'
+@import '../../styles/media'
 
 .logo-container
   align-self: end
@@ -15,7 +15,6 @@
   stroke-dasharray: 350px 0
   animation: form 9s ease forwards infinite
   transform-origin: center
-  stroke: black
 
 @media (prefers-reduced-motion)
     .path
@@ -29,21 +28,18 @@
     opacity: 1
     fill: transparent
 
-  10%
+  15%
     opacity: 1
     fill: transparent
 
   40%
     stroke-dasharray: 350px 0
-    fill: black
     opacity: 1
 
   85%
     stroke-dasharray: 350px 0
-    fill: black
     opacity: 1
 
   100%
     opacity: 0
-    fill: black
     stroke-dasharray: 0 350px

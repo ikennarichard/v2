@@ -1,5 +1,5 @@
-@import '../../media'
-
+@import '../../styles/media'
+@import '../../styles/mixins'
 .hero
   height: calc(100vh - 100px)
   position: relative
@@ -25,15 +25,15 @@
     
     @include mobile
       width: 100%
-      height: auto
-      margin-block-start: 2em
-      padding-inline-start: 0.6em
+      height: 100%
+      padding-block-start: 4em
+      padding-inline-start: 0.9em
     
     @include tablet
       width: 100%
       height: auto
-      margin-block-start: 3em
-      padding-inline-start: 1.6em
+      margin-block-start: 9em
+      padding-inline-start: 1em
 
     p
       font-size: 1.2rem
@@ -47,14 +47,14 @@
     .buttons
       display: flex
       gap: 9px
-      border: 1px solid rgb(22,22,22)
+      border: 1px solid
       width: fit-content
+      z-index: 2
       
       button
         appearance: none
         outline: none
         border: none
-        color: black
         width: 190px
         height: 60px
         text-transform: uppercase
@@ -70,13 +70,13 @@
         position: relative
       
       button::after
+        @include applyBackgroundColors(white)
         content: ''
         position: absolute
         top: 0
         right: 0
         bottom: 0
         left: 0
-        inset: 0
         transform: scaleX(0)
         transform-origin: left
         z-index: -1
@@ -87,16 +87,18 @@
        transform: scaleX(1)
       
       button:hover
+        @include applyTextColors(black)
         color: white
 
   .sliding-text-container
+    @include applyTextColors(#0f0f0f)
     position: absolute
     font-size: 50vh
     bottom: -0.2em
     white-space: nowrap
     color: #2f2f2f13
     font-style: italic
-    z-index: -1
+    z-index: 1
     width: 50%
 
 // animation

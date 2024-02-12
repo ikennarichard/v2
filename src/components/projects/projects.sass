@@ -1,7 +1,8 @@
-@import '../../media'
+@import '../../styles/media'
+@import '../../styles/mixins'
 
 .project
-  background: url(/images/Thur.svg) no-repeat 90% 100% / contain
+  background: url(/images/Thur.svg) no-repeat 800px 100% / contain
   height: 100vh
   filter: grayscale(100%)
   color: black
@@ -28,7 +29,7 @@
     padding: 0
     margin: 0
     gap: 2em
-    padding-inline-start: 0.9em
+    padding-inline-start: 3em
     margin-block-start: -1em
 
 .links-list
@@ -39,10 +40,12 @@
     gap: 9px
 
 .project-links
+  @include applyTextColors(white)
   text-decoration: underline
   font-size: 2rem
   color: initial
 
 .project-heading
+  @include applyTextColors(white)
   width: fit-content
   font-size: 4rem

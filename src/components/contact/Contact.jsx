@@ -57,6 +57,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1}}
         >
+          
           <input type="text" placeholder="Name" required />
           <input type="email" placeholder="me@mail.com" />
           <textarea required name="message" rows="6" placeholder="Message"></textarea>
