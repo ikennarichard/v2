@@ -13,16 +13,18 @@ const ThemeToggle = () => {
   };
   const variants = {
     open: {
-      clipPath: ['circle(0% at 110px 50px)', 'circle(200vw at 50px 50px)'],
+      clipPath: ['circle(0% at 110px 50px)', 'circle(300vw at 50px 50px)'],
+      width: '100%',
       opacity: 0.1,
       transition: {
         stiffness: 100,
         damping: 30,
       },
-      transitionEnd: { visibility: 'hidden'}
+      transitionEnd: { opacity: 0 }
     },
     closed: {
       clipPath:  ['circle(100vw at 50px 50px)', 'circle(0% at 110px 50px)'],
+      width: '100%',
       transition: {
         type: 'spring',
         stiffness: 280,
@@ -32,17 +34,18 @@ const ThemeToggle = () => {
   };
   return (
     <motion.div
-      initial='closed'
-      animate={isDarkMode ? 'open' : 'closed'}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: {delay: 0.5}}}
+      whileInView={isDarkMode ? 'open' : 'closed'}
       className='theme-toggle-container'
     >
-      <motion.div variants={variants} className="bg">
+      <motion.div variants={variants} className="theme-bg">
       </motion.div>
         <motion.button
           className="theme-btn"
           onClick={handleModeChange}
         >
-          <img src={isDarkMode ? light : dark} alt="theme icon" />
+          <img width={26} height={26} src={isDarkMode ? light : dark} alt="theme icon" />
         </motion.button>
     </motion.div>
   );

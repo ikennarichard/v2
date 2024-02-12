@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import Sidebar from '../sidebar/Sidebar';
 import Social from '../social/Social';
 import Logo from '../logo/Logo';
-import ThemeToggle from '../theme-toggler/ThemeToggle';
 import './navbar.sass'
 
 const NavBar = () => {
@@ -24,7 +23,6 @@ const NavBar = () => {
             transition={{ duration: 1.5 }}
           >
             <Social/>
-            <ThemeToggle/>
           </motion.div>
         </div>
       </div>
