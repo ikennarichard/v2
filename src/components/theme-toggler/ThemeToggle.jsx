@@ -13,18 +13,20 @@ const ThemeToggle = () => {
   };
   const variants = {
     open: {
-      clipPath: 'circle(100vw at 50px 50px)',
+      clipPath: ['circle(0% at 110pxpx 50px)', 'circle(150vw at 50px 50px)'],
+      visibility: 'hidden',
       transition: {
         type: 'spring',
-        stiffness: 300,
-        damping: 30
+        stiffness: 280,
+        damping: 30,
+        visibility: { delay: 0.29 }
       }
     },
     closed: {
-      clipPath: 'circle(0px at 50px 50px)',
+      clipPath:  ['circle(100vw at 50px 50px)', 'circle(0% at 110px 50px)'],
       transition: {
         type: 'spring',
-        stiffness: 250,
+        stiffness: 280,
         damping: 30,
       },
     },
@@ -32,7 +34,7 @@ const ThemeToggle = () => {
   return (
     <motion.div
       initial='closed'
-      animate={isDarkMode }
+      animate={isDarkMode ? 'open' : 'closed'}
       className='theme-toggle-container'
     >
       <motion.div variants={variants} className="bg">
