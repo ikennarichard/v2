@@ -1,0 +1,15 @@
+@mixin applyBackgroundColors($darkColor)
+  .dark &
+    background-color: $darkColor
+
+@mixin applyTextColors($darkColor)
+  .dark &
+    color: $darkColor
+
+@mixin applyFilterColors($value)
+  .dark &
+    filter: brightness($value) 
+
+@mixin applyBorderColors($value)
+  .dark &
+    border-color: white 
