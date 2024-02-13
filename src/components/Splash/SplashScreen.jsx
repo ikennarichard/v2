@@ -27,7 +27,7 @@ const SplashScreen = () => {
               <motion.span
                 key="animated-span-1"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0, scale: 2 }}
+                animate={{ opacity: 1, y: 0, x: 18, scale: 1.7 }}
                 exit={{ opacity: 0, y: -130 }}
                 transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
               >
@@ -44,7 +44,7 @@ const SplashScreen = () => {
               </motion.span>
               <motion.span
                 key="animated-span-3"
-                initial={{ opacity: 0, y: 20, bottom: 30, left: 30 }}
+                initial={{ opacity: 0, y: 20, bottom: 30, left: 26 }}
                 animate={{ opacity: 1, y: 0,scale:1.2 }}
                 exit={{ opacity: 0, y: -130 }}
                 transition={{ duration: 0.5, ease: "easeInOut", delay: 0.8 }}
