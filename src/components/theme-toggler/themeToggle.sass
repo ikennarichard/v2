@@ -3,20 +3,19 @@
   position: fixed
   top: 38px
   left: 100px
-  z-index: 9
+  z-index: 1
 
-.theme-bg
-  @include applyBackgroundColors($darkColor: white)
-  position: fixed
-  background-color: black
-  top: 0
-  right: 0
-  bottom: 0
+  .theme-bg
+    @include applyBackgroundColors($darkColor: white)
+    position: fixed
+    background-color: black
+    top: 0
+    right: 0
+    bottom: 0
 
-.theme-btn
-  position: relative
-  cursor: pointer
-  appearance: none
-  background: none
-  border: none
-  outline: none
+  .theme-btn
+    cursor: pointer
+    appearance: none
+    background: none
+    border: none
+    outline: none

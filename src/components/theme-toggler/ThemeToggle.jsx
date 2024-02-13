@@ -13,12 +13,13 @@ const ThemeToggle = () => {
   };
   const variants = {
     open: {
-      clipPath: ['circle(0% at 110px 50px)', 'circle(300vw at 50px 50px)'],
+      clipPath: ['circle(0% at 110px 50px)', 'circle(100vw at 110px 50px)', 'circle(0 at 10000px 1000000px)'],
       width: '100%',
       opacity: 0.1,
       transition: {
-        stiffness: 100,
-        damping: 30,
+        duration: 1,
+        stiffness: 200,
+        damping: 3,
       },
       transitionEnd: { opacity: 0 }
     },
@@ -35,7 +36,7 @@ const ThemeToggle = () => {
   return (
     <motion.div
       initial={{ opacity: 0, x: -3 }}
-      whileInView={{ opacity: 1, x: 0, transition: { duration: 0.9, delay: 0.3}}}
+      whileInView={{ opacity: 1, x: 0, transition: { duration: 0.1, delay: 0.3}}}
       animate={isDarkMode ? 'open' : 'closed'}
       className='theme-toggle-container'
     >
