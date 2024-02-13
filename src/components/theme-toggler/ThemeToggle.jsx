@@ -34,9 +34,9 @@ const ThemeToggle = () => {
   };
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: {delay: 0.5}}}
-      whileInView={isDarkMode ? 'open' : 'closed'}
+      initial={{ opacity: 0, x: -3 }}
+      whileInView={{ opacity: 1, x: 0, transition: { duration: 0.9, delay: 0.3}}}
+      animate={isDarkMode ? 'open' : 'closed'}
       className='theme-toggle-container'
     >
       <motion.div variants={variants} className="theme-bg">
