@@ -44,10 +44,10 @@ const Hero = () => {
           initial='initial'
           animate='animate'
         >
-          <motion.p variants={textVariants}>Hi, my name is</motion.p>
+          <motion.p variants={textVariants}>Hello<b style={{color: 'tomato'}}>!</b>, my name is</motion.p>
           <motion.h2 variants={textVariants}>IKENNA RICHARD</motion.h2>
           <motion.p variants={textVariants}>
-            Freelance Software Engineer
+            Freelance Frontend Engineer
           </motion.p>
           <motion.div 
             className={`buttons 
