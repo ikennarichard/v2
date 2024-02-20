@@ -67,7 +67,10 @@ const ProjectList = () => {
         />
           {
             data.projects.map((item) => (
-              <li key={item.id} className="project-container">
+              <li 
+              key={item.id} 
+              className="project-container" 
+              id={item.title}>
                 <Single item={item} title={item.title} />
               </li>
             ))
