@@ -49,7 +49,7 @@ const About = () => {
         <div className="details">
           <h2>About</h2>
           <div className="text">
-            <h3>I&apos;m Richard. A freelance frontend engineer. A writer and problem solver.</h3>
+            <h3>I&apos;m Richard. A freelance software engineer. A writer and problem solver.</h3>
             <p>My journey into tech took an exciting turn when I joined the Microverse web development programme. Since then, I fell in love with React and Redux and have been using them ever since in web applications.</p>
             <p>In addition to React, I have experience working with Ruby on Rails and PostgreSQL.</p>
             <p>What excites me most about my job is being able to create things that provide high value to people.</p>
