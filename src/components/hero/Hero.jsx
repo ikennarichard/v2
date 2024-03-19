@@ -24,7 +24,7 @@ const sliderVariants = {
     x: '20%',
   },
   animate: {
-    x: '-1150px',
+    x: '-1170px',
     transition: {
       repeat: Infinity,
       repeatType: 'reverse',
