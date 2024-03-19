@@ -8,7 +8,7 @@ const SplashScreen = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsPresent(false);
-    }, 1800);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [isPresent])
@@ -16,9 +16,9 @@ const SplashScreen = () => {
   return (
     <motion.div
       className='splash'
-      initial={{ top: '0vh' }}
-      animate={{ top: '-100vh' }}
-      transition={{ duration: 0.7, ease: "easeInOut", delay: 2.5 }}
+      initial={{ top: 0 }}
+      animate={{ top: '-100%', opacity: 0}}
+      transition={{ duration: 1, ease: "easeInOut", delay: 3}}
     >
       <div className='header'>
         <AnimatePresence>
@@ -26,28 +26,29 @@ const SplashScreen = () => {
             <>
               <motion.span
                 key="animated-span-1"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0, x: 18, scale: 1.7 }}
-                exit={{ opacity: 0, y: -130 }}
+                initial={{ opacity: 0, x: -200 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -200 }}
                 transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
               >
                 Anything
               </motion.span>
               <motion.span
                 key="animated-span-2"
-                initial={{ opacity: 0, y: 20, top: -35 }}
-                animate={{ opacity: 1, y: 0, scale: 1.3 }}
-                exit={{ opacity: 0, y: -130 }}
-                transition={{ duration: 0.5, ease: "easeInOut", delay: 0.4 }}
+                initial={{ opacity: 0, x: 200 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, y: -100 }}
+                transition={{ duration: 0.7, ease: "easeInOut", delay: 0.6 }}
               >
                 is
               </motion.span>
               <motion.span
                 key="animated-span-3"
-                initial={{ opacity: 0, y: 20, bottom: 30, left: 26 }}
-                animate={{ opacity: 1, y: 0,scale:1.2 }}
-                exit={{ opacity: 0, y: -130 }}
-                transition={{ duration: 0.5, ease: "easeInOut", delay: 0.8 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, x: 200 }}
+
+                transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }}
               >
                 possible!
               </motion.span>

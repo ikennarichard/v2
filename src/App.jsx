@@ -19,14 +19,14 @@ function App() {
       useEffect(() => {
         setTimeout(() => {
           setIsLoading(false);
-        }, 3000);
+        }, 4000);
       }, []);
     
       if (isLoading) {
         return <SplashScreen />;
       }
   return (
-    <div className={isDarkMode ? 'dark' : null}>
+    <div className={`${isDarkMode ? 'dark' : null} app-wrapper`}>
       <ThemeToggle/>
       <Pulse/>
       <section id='home' className='background-dark text-dark'>

@@ -21,14 +21,15 @@ const textVariants = {
 
 const sliderVariants = {
   initial: {
-    x: 0,
+    x: '20%',
   },
   animate: {
-    x: '-190%',
+    x: '-270%',
     transition: {
       repeat: Infinity,
-      repeatType: 'mirror',
-      duration: 6,
+      repeatType: 'reverse',
+      duration: 9,
+      delay: 2
     },
   },
 }
@@ -53,6 +54,9 @@ const Hero = () => {
             className={`buttons 
             ${isDarkMode ?  'border-dark' : null}`}
             variants={textVariants}
+            style={{
+              marginBlockStart: '2.6em'
+            }}
           >
             <a href="#contact">
               <motion.button 
@@ -70,7 +74,7 @@ const Hero = () => {
         initial='initial'
         animate='animate'
       >
-        Developer Writer
+        Content is like water
       </motion.div>
     </div>
   )
