@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const textVariants = {
   initial: {
     x: -10,
-    opacity: 0,
+    opacity: 0.3
   },
   animate: {
     x: 0,
@@ -24,7 +24,7 @@ const sliderVariants = {
     x: '20%',
   },
   animate: {
-    x: '-270%',
+    x: '-2950px',
     transition: {
       repeat: Infinity,
       repeatType: 'reverse',
@@ -45,7 +45,9 @@ const Hero = () => {
           initial='initial'
           animate='animate'
         >
-          <motion.p variants={textVariants}>Hello, my name is</motion.p>
+          <motion.p 
+            variants={textVariants}
+          >Hello, my name is</motion.p>
           <motion.h2 variants={textVariants}>IKENNA RICHARD</motion.h2>
           <motion.p variants={textVariants}>
             Software Engineer
@@ -55,16 +57,15 @@ const Hero = () => {
             ${isDarkMode ?  'border-dark' : null}`}
             variants={textVariants}
             style={{
-              marginBlockStart: '2.6em'
+              margin: '2.6em auto'
             }}
           >
             <a href="#contact">
-              <motion.button 
-                variants={textVariants}
+              <button 
                 className={isDarkMode ?  'text-dark' : null}
               >
                 GET IN TOUCH
-              </motion.button>
+              </button>
             </a>
           </motion.div>
         </motion.div>

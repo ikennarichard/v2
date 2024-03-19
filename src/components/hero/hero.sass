@@ -7,10 +7,12 @@
   overflow: hidden
 
   .wrapper
-    max-width: 1366px
+    max-width: 1368px
     padding-inline-start: 4em
     height: 100%
-    margin: 0 auto
+    text-align: center
+    display: flex
+    justify-content: center
 
     @include mobile
       padding-inline-start: 0.6em
@@ -21,8 +23,9 @@
     display: flex
     flex-direction: column
     justify-content: center
-    gap: 20px
+    gap: 21px
     margin-block-start: -2em
+    margin-inline-start: -2em
     
     @include mobile
       width: 100%
@@ -33,17 +36,18 @@
     @include tablet
       width: 100%
       height: auto
-      margin-block-start: 6em
+      margin-block-start: 2em
       padding-inline-start: 1em
 
     p
-      font-size: 1.2rem
+      font-size: 1.6rem
       font-weight: 400
       letter-spacing: 3px
     
     h2
       font-size: 3rem
       font-weight: 700
+      letter-spacing: 6px
     
     .buttons
       display: flex
@@ -97,11 +101,15 @@
     font-size: 50vh
     bottom: -0.2em
     white-space: nowrap
-    color: #3d3d3d13
+    color: #0e0d0d6a
     font-style: italic
     z-index: 1
     width: 50%
+    
     @include mobile
+      display: none
+    
+    @include tablet
       display: none
 
 // animation

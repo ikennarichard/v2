@@ -10,7 +10,7 @@ const NavBar = () => {
         <div className="wrapper">
         <Sidebar/>
           <motion.div
-            initial={{ oapcity:0, translateX: '-12px'}}
+            initial={{ opacity:0, translateX: '-12px'}}
             animate={{ opacity: 1, translateX: 0}}
             transition={{ duration: 1.5 }}
           >
