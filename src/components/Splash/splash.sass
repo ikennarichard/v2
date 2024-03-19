@@ -18,8 +18,10 @@
     transform: translate(-50%, -50%)
     font-size: 2rem
   
-  span
+  span:not(:nth-child(2))
     position: relative
     display: inline-block
-    
-    
+    font-weight: bold
+    background: -webkit-linear-gradient(250deg, #eee 70%, #bfbfbf 70%)
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent

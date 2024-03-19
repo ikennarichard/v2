@@ -29,16 +29,20 @@ const SplashScreen = () => {
                 initial={{ opacity: 0, x: -200 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -200 }}
-                transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
+                transition={{ duration: 1.6, ease: "easeInOut", delay: 0.2 }}
               >
                 Anything
               </motion.span>
               <motion.span
                 key="animated-span-2"
-                initial={{ opacity: 0, x: 200 }}
+                initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, y: -100 }}
-                transition={{ duration: 0.7, ease: "easeInOut", delay: 0.6 }}
+                transition={{ duration: 1, ease: "easeInOut", delay: 0.6 }}
+                style={{
+                  color: 'tomato',
+                  fontWeight: 'bold'
+                }}
               >
                 is
               </motion.span>
@@ -48,9 +52,9 @@ const SplashScreen = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, x: 200 }}
 
-                transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }}
+                transition={{ duration: 1, ease: "easeInOut", delay: 0.5 }}
               >
-                possible!
+                possible
               </motion.span>
             </>
           )}

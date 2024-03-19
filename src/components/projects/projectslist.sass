@@ -9,11 +9,12 @@
   @include applyBackgroundColors(white)
   background-color: black
   z-index: 1
-  position: sticky
+  position: fixed
   top: 0
   left: 0
-  width: 100%
+  right: 0
   height: 6px
+  transform-origin: 0% 
   margin-block-end: 3px
 
   @include mobile
@@ -31,6 +32,7 @@
 
   .image
     object-fit: cover
+    object-position: 50% 50%
     max-width: 350px
     height: 400px
     filter: grayscale(100%)

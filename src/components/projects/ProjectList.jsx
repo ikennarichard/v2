@@ -5,7 +5,7 @@ import data from './projects.json'
 import './projectslist.sass'
 
 
-const Single = ({ item }) => {
+const Project = ({ item }) => {
 
   return (
     <motion.section
@@ -23,6 +23,8 @@ const Single = ({ item }) => {
         src={item.image} 
         alt="project image" 
         className="image"
+        width='auto'
+        height='auto'
       />
       <div className="details">
         <h2>{item.title}</h2>
@@ -53,9 +55,9 @@ const ProjectList = () => {
   });
 
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
+    // stiffness: 100,
+    // damping: 30,
+    // restDelta: 0.001
   });
 
   return (
@@ -71,7 +73,7 @@ const ProjectList = () => {
               key={item.id} 
               className="project-container" 
               id={item.title}>
-                <Single item={item} title={item.title} />
+                <Project item={item} title={item.title} />
               </li>
             ))
           }
