@@ -16,13 +16,15 @@ import './styles/app.sass'
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const { isDarkMode } = useContext(ThemeContext);
+  const width = document.querySelector('body').clientWidth;
+
       useEffect(() => {
         setTimeout(() => {
           setIsLoading(false);
         }, 4000);
       }, []);
     
-      if (isLoading) {
+      if (isLoading && width >= '738') {
         return <SplashScreen />;
       }
   return (
