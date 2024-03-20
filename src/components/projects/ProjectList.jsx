@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import { motion, useScroll, useSpring } from "framer-motion"
 import data from './projects.json'
 import './projectslist.sass'
@@ -11,7 +11,6 @@ const Project = ({ item }) => {
     <motion.section
       initial="hidden"
       whileHover="visible"
-      // viewport={{ once: true }}
       transition={{ duration: 0.9, ease: 'easeInOut'}}
       variants={{
       visible: { x: 0, scale: 0.9 },
@@ -51,22 +50,26 @@ const ProjectList = () => {
   
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start start', 'end end'],
+    offset: ['start 300px', 'end end'],
   });
 
   const scaleX = useSpring(scrollYProgress, {
-    // stiffness: 100,
-    // damping: 30,
-    // restDelta: 0.001
+    stiffness: 900,
+    damping: 30,
   });
+
+  useEffect(() => {
+    
+  }, [])
 
   return (
     <div>
-      <motion.ul ref={ref}>
+
+      <motion.ul ref={ref} className="list">
         <motion.div 
-          className="progress-bar"
-          style={{ scaleX }}
-        />
+            className="progress-bar"
+            style={{ scaleX }}
+          />
           {
             data.projects.map((item) => (
               <li 

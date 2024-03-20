@@ -6,7 +6,7 @@ import "./themeToggle.sass";
 
 const ThemeToggle = () => {
   const { isDarkMode, setIsDarkMode } = useContext(ThemeContext);
-
+  
   const handleModeChange = () => {
     setIsDarkMode(!isDarkMode);
   };

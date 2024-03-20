@@ -3,7 +3,6 @@
 
 .project-container
   @include applyBackgroundColors(black)
-  position: relative
 
 .progress-bar
   @include applyBackgroundColors(white)
@@ -13,9 +12,8 @@
   top: 0
   left: 0
   right: 0
-  height: 6px
-  transform-origin: 0% 
-  margin-block-end: 3px
+  height: 3px
+  transform-origin: 0%
 
   @include mobile
   @include tablet
@@ -104,4 +102,3 @@
     
     .source:hover:after, .live-demo:hover:after
       transform: scaleX(1)
-      

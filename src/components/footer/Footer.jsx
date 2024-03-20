@@ -4,6 +4,7 @@ const Footer = () => {
  useEffect(() => {
    const contactSection = document.querySelector('#contact');
    const spanElement = document.querySelector('.date');
+   const progressBar = document.querySelector('.progress-bar');
 
    const observer = new IntersectionObserver((entries) => {
      entries.forEach(entry => {
@@ -12,11 +13,13 @@ const Footer = () => {
          spanElement.style.transform = 'rotate(0)';
          spanElement.style.left = '6px';
          spanElement.style.bottom = '3px';
+         progressBar.style.visibility = 'hidden';
        } else {
          // When leaving the viewport
          spanElement.style.transform = 'rotate(-90deg)';
          spanElement.style.left = '-2em';
          spanElement.style.bottom = '5em';
+         progressBar.style.visibility = 'visible';
        }
      });
    }, { threshold: 0.5 });
