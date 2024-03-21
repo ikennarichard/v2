@@ -75,27 +75,46 @@
       
       textarea
         resize: none
-        
-      
-      button
-        @include applyBackgroundColors(white)
-        @include applyTextColors(black)
-        
-        padding-block: 12px
-        width: 130px
-        margin: 0 auto
-        border-radius: 0.6em
-        border: none
-        color: white
-        background-color: rgb(30,30,30)
-        cursor: pointer
-        font-size: 1.2rem
-        font-weight: bold
-        transition: transform 0.3s ease-in
+          
+.contact-btn
+  @include applyBackgroundColors(white)
+  @include applyTextColors(black)
+  overflow: hidden
+  padding-block: 12px
+  width: 130px
+  height: 50px
+  margin: 0 auto
+  border-radius: 2em
+  border: none
+  color: white
+  background-color: rgb(30,30,30)
+  cursor: pointer
+  transition: background 0.3s ease-in
 
-      button:hover
-        opacity: 0.95
-        transform: translateX(3px)
+  span
+    position: relative
+    top: 0px
+    font-weight: bold
+    font-size: 1.1rem
+    transition: 0.28s ease-in
+
+  span:after
+    position: absolute
+    right: 0
+    top: 40px
+    content: attr(data-text)
+    display: block
+    opacity: 1
+    color: white
+  
+  &:hover
+    background-color: #28a745
+  
+  &:hover span
+    top: -40px
+
+  &:hover span:after
+    opacity: 1
 
 ::placeholder
   @include applyTextColors(white)

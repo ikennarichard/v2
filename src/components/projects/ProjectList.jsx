@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 import { motion, useScroll, useSpring } from "framer-motion"
 import data from './projects.json'
 import './projectslist.sass'
@@ -54,14 +54,9 @@ const ProjectList = () => {
   });
 
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 900,
-    damping: 30,
+    stiffness: 1200,
+    damping: 70,
   });
-
-  useEffect(() => {
-    
-  }, [])
-
   return (
     <div>
 
