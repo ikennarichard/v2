@@ -43,9 +43,6 @@ const About = () => {
             <li><p>SASS</p></li>
             <li><p>Git / Github</p></li>
             <li><p>Jest / Vitest / React Testing Library</p></li>
-            <li><p>Pair programming</p></li>
-            <li><p>Agile kanban development process</p></li>
-            <li><p>RESTFul API</p></li>
           </ul>
           <a href="Ikenna_Richard_Resume.pdf" target="_blank" rel="noopener noreferrer" download="" className='resume-link'>
             <button className='get-resume' type="button">
