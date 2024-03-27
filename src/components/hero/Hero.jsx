@@ -22,13 +22,15 @@ const textVariants = {
 const sliderVariants = {
   initial: {
     x: '20%',
+    opacity: 0,
   },
   animate: {
     x: '-300%',
+    opacity: [0, 0.6, 1],
     transition: {
       repeat: Infinity,
-      repeatType: 'reverse',
-      duration: 9,
+      repeatType: 'mirror',
+      duration: 11,
       delay: 2
     },
   },
