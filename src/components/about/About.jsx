@@ -53,7 +53,7 @@ const About = () => {
         <div className="details">
           <h2>ABOUT</h2>
           <div className="text">
-          <p>My journey in technology has been a thrilling adventure, particularly since joining the Microverse software development bootcamp. It was there that I discovered my passion for creating captivating user experiences, leading me to specialize in frontend development with React, Astro and Redux.</p>
+          <p>My journey in technology has been a thrilling adventure, particularly since joining the Microverse software development bootcamp. It was there that I discovered my passion for creating user interfaces, leading me to specialize in frontend development with React, Astro and Redux.</p>
 
           <p>In addition to my frontend focus, I&apos;ve also gained valuable experience with backend technologies like Ruby on Rails, Express.js, and PostgreSQL. My full-stack background has given me the skills to seamlessly blend frontend and backend components.</p>
 
