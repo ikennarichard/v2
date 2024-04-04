@@ -55,9 +55,7 @@ const About = () => {
           <div className="text">
           <p>My journey in technology has been a thrilling adventure, particularly since joining the Microverse software development bootcamp. It was there that I discovered my passion for creating user interfaces, leading me to specialize in frontend development with React, Astro and Redux.</p>
 
-          <p>In addition to my frontend focus, I&apos;ve also gained valuable experience with backend technologies like Ruby on Rails, Express.js, and PostgreSQL. My full-stack background has given me the skills to seamlessly blend frontend and backend components.</p>
-
-          <p>What excites me most about my job is being able to create things that provide high value to people.</p> 
+          <p>In addition to my frontend focus, I&apos;ve also gained valuable experience with backend technologies like Ruby on Rails, Express.js, and PostgreSQL. My full-stack background has given me the skills to seamlessly blend frontend and backend components. What excites me most about my job is being able to create things that provide high value to people.</p>
           </div>
         </div>
       </div>
