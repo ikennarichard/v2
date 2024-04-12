@@ -52,7 +52,7 @@ const Hero = () => {
           >Hello, my name is</motion.p>
           <motion.h2 variants={textVariants}>IKENNA RICHARD</motion.h2>
           <motion.p variants={textVariants} style={{width: '65%', margin: '0 auto'}}>
-            Frontend Engineer, building web user interfaces with a focus on user experience, accessibility, and performance.
+            Frontend Engineer
           </motion.p>
           <motion.div 
             className={`buttons 
