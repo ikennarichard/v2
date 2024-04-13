@@ -34,7 +34,7 @@ const Contact = () => {
           transition={{ duration: 1}}
           className="text-container"
         >
-        <h1>Lets work together</h1>
+        <h2>Lets work together</h2>
         <div className="contact-item">
           <h2>Mail</h2>
           <span>oguejioforrichard@gmail.com</span>
