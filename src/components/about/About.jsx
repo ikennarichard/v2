@@ -34,10 +34,6 @@ const About = () => {
             <li><p>React</p></li>
             <li><p>Astro</p></li>
             <li><p>Redux</p></li>
-            <li><p>Node.js</p></li>
-            <li><p>Go</p></li>
-            <li><p>Ruby on Rails</p></li>
-            <li><p>Express.js</p></li>
             <li><p>Bootstrap</p></li>
             <li><p>Tailwind CSS</p></li>
             <li><p>SASS</p></li>
