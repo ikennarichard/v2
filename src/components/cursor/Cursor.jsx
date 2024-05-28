@@ -1,38 +1,59 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useEffect } from "react";
 import './cursor.sass';
+import { motion, useMotionValue, useSpring } from "framer-motion";
+
 
 const Cursor = () => {
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0});
+
+  const cursorSize = 12;
+  const mouse = {
+    x: useMotionValue(-100),
+    y: useMotionValue(-100),
+  }
+
+  function disable() {
+    const cursor = document.querySelector('.cursor')
+    document.querySelectorAll('button').forEach((item) => {
+      item.addEventListener('mouseover', () => {
+        cursor.style.visibility = 'hidden'
+      })
+      item.addEventListener('mouseleave', () => {
+        cursor.style.visibility= 'visible'
+      })
+    })
+  }
+
+  const smoothOptions = { damping: 20, stiffness: 300, mass: 0.5}
+  const smoothMouse = {
+    x: useSpring(mouse.x, smoothOptions),
+    y: useSpring(mouse.y, smoothOptions)
+  }
+
+  const handleMouseMove = e => {
+    const { clientX, clientY } = e;
+    mouse.x.set(clientX - cursorSize / 2)
+    mouse.y.set(clientY - cursorSize / 2)
+    disable();
+  }
 
   useEffect(() => {
-    const mouseMove = (e) => {
-      e.stopPropagation();
-      setCursorPos({ x: e.clientX, y: e.clientY});
-    }
-
-    window.addEventListener('mousemove', mouseMove);
+    window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
-      window.removeEventListener('mousemove', mouseMove);
+      window.removeEventListener('mousemove', handleMouseMove);
     }
   }, [])
 
   return (
-    <motion.div
-      initial={{ opacity: 0}}
-      animate={{ opacity: '0.9', x: cursorPos.x+9, y: cursorPos.y+9}}
-      transition={{
-        ease: 'backOut'
+    <>
+    <motion.div 
+      id="cursor"
+      style={{
+        left: smoothMouse.x,
+        top: smoothMouse.y,
       }}
-      className="cursor"
-    >
-      <div 
-        className="dot"
-      >
-          
-      </div>
-    </motion.div>
+    ></motion.div>
+    </>
   )
 }
 
