@@ -12,7 +12,7 @@ const Cursor = () => {
   }
 
   function disable() {
-    const cursor = document.querySelector('.cursor')
+    const cursor = document.querySelector('#cursor')
     document.querySelectorAll('button').forEach((item) => {
       item.addEventListener('mouseover', () => {
         cursor.style.visibility = 'hidden'
