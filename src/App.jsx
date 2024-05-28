@@ -6,6 +6,7 @@ import NavBar from './components/navBar/NavBar';
 import Hero from './components/hero/Hero';
 import Project from './components/projects/Projects';
 import ProjectList from './components/projects/ProjectList';
+import Cursor from './components/cursor/Cursor';
 import Contact from './components/contact/Contact';
 import About from './components/about/About';
 import Footer from './components/footer/Footer';
@@ -31,6 +32,7 @@ function App() {
     <div className={`${isDarkMode ? 'dark' : null} app-wrapper`}>
       <ThemeToggle/>
       <Pulse/>
+      <Cursor/>
       <section id='home' className='background-dark text-dark'>
         <NavBar/>
         <Hero/>
