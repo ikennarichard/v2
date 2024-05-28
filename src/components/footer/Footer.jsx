@@ -25,8 +25,7 @@ const Footer = () => {
    }, { threshold: 0.5 });
 
    observer.observe(contactSection);
-
-   // Cleanup
+   
    return () => observer.disconnect();
  }, []);
 
