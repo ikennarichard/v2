@@ -29,10 +29,11 @@ section
   overflow: hidden
   z-index: 999
   transition: background-color 0.5s ease-in-out
-  background-color: white
   @include mobile
     scroll-snap-align: none
 
+section:not(.project-card)
+  background-color: white
 a
   text-decoration: none
   color: initial
