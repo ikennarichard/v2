@@ -1,20 +1,18 @@
+@import '../../styles/mixins'
 @import '../../styles/media'
 
-.cursor
+$cursor-size: 15px
+
+#cursor
   position: fixed
-  width: 30px
-  height: 30px
-  border: 1px solid rgb(22,22,22)
+  width: $cursor-size
+  height: $cursor-size
   border-radius: 50%
-  z-index: 999
-  display: grid
-  place-items: center
-  
-  .dot
-    background-color: rgb(22,22,22)
-    width: 2.5px
-    height: 2.5px
-    border-radius: 50%
-  
+  mix-blend-mode: difference
+  background-color: white
+  transition: transform 150ms ease
+  pointer-events: none
+  z-index: 9
+
   @include mobile
     display: none
