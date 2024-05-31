@@ -22,6 +22,7 @@ const Pulse = () => {
         if(played) {
           return null;
         } else {
+          audio.volume = 0.011
           audio.play()
           setPlayed(true);
         }
