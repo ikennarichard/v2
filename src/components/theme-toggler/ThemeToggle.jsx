@@ -15,8 +15,7 @@ const ThemeToggle = () => {
     <div
       className='theme-toggle-container'
     >
-      <div className="theme-bg">
-      </div>
+      {/* <div className="theme-bg"></div> */}
         <button
           className="theme-btn"
           onClick={handleModeChange}
