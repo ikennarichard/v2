@@ -13,7 +13,6 @@ const ThemeToggle = () => {
     <div
       className='theme-toggle-container'
     >
-      {/* <div className="theme-bg"></div> */}
       {
         isDarkMode ? (
           <button
