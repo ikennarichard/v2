@@ -1,6 +1,4 @@
 import { useContext } from 'react';
-import light from '/icons/light-mode.svg'
-import dark from '/icons/dark-mode.svg'
 import { ThemeContext } from '../../context/ThemeContext';
 import "./themeToggle.sass";
 
