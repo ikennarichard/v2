@@ -1,46 +1,18 @@
 @import '../../styles/media'
 
 .logo-container
-  align-self: end
-  margin-inline-start: 4em
+  margin-inline: auto
   
   @include mobile
     display: none
+  @include tablet
+    display: block
   
   svg
     width: 60px
     height: fit-content
 
-.path
-  stroke-dashoffset: 1px
-  stroke-dasharray: 350px 0
-  animation: form 9s ease forwards infinite
-  transform-origin: center
-
 @media (prefers-reduced-motion)
     .path
       animation: none!important
       stroke-dasharray: unset!important
-
-@keyframes form
-  0%
-    stroke-dashoffset: 1px
-    stroke-dasharray: 0 350px
-    opacity: 1
-    fill: transparent
-
-  15%
-    opacity: 1
-    fill: transparent
-
-  40%
-    stroke-dasharray: 350px 0
-    opacity: 1
-
-  85%
-    stroke-dasharray: 350px 0
-    opacity: 1
-
-  100%
-    opacity: 0
-    stroke-dasharray: 0 350px

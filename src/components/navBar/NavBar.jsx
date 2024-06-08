@@ -10,8 +10,8 @@ const NavBar = () => {
         <div className="wrapper">
         <Sidebar/>
           <motion.div
-            initial={{ opacity:0, translateX: '-12px'}}
-            animate={{ opacity: 1, translateX: 0}}
+            initial={{ opacity:0, translateX: '50%'}}
+            animate={{ opacity: 1, translateX: "60%", translateY: '10px'}}
             transition={{ duration: 1.5 }}
           >
             <Logo/>

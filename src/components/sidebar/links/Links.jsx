@@ -3,12 +3,15 @@ import { motion } from "framer-motion";
 const variants = {
   open: {
     transition: {
-      staggerChildren: 0.1
+      ease: 'easeInOut',
+      staggerChildren: 0.09,
+      staggerDirection: 1
     }
   },
   closed: {
     transition: {
-      staggerChildren: 0.05,
+      ease: 'easeInOut',
+      staggerChildren: 0.09,
       staggerDirection: -1,
     },
   },
@@ -18,9 +21,13 @@ const itemVariants = {
   open: {
     y: 0,
     opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: "linear"
+    }
   },
   closed: {
-    y: 50,
+    y: 5,
     opacity: 0
   },
 };
