@@ -2,17 +2,9 @@
 
 .logo-container
   margin-inline: auto
-  
-  @include mobile
-    display: none
-  @include tablet
-    display: block
-  
   svg
     width: 60px
     height: fit-content
-
-@media (prefers-reduced-motion)
-    .path
-      animation: none!important
-      stroke-dasharray: unset!important
+  @media ( max-width: 600px)
+    display: none
+    
