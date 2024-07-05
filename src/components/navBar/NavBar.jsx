@@ -3,10 +3,18 @@ import Sidebar from '../sidebar/Sidebar';
 import Social from '../social/Social';
 import Logo from '../logo/Logo';
 import './navbar.sass'
+import { useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const NavBar = () => {
+  const { isDarkMode } = useContext(ThemeContext);
   return (
-      <div className='navbar'>
+      <div
+        className='navbar'
+        style={{
+          backgroundColor: isDarkMode ? '#00000061' : '#ffffff99'
+        }}
+      >
         <div className="wrapper">
         <Sidebar/>
           <motion.div
