@@ -1,11 +1,19 @@
 /* eslint-disable react/prop-types */
 import { useRef } from "react"
-import { motion, useScroll, useSpring } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import data from './projects.json'
 import './projectslist.sass'
 
 
 const Project = ({ item }) => {
+  const ref = useRef()
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "center", "end start"],
+  });
+
+  const scaleProgress = useTransform(scrollYProgress, [0, 0.5, 0.6, 1], [0.8, 1, 1, 0.6]);
+  const opacityProgress = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.5]);
 
   return (
     <motion.section
@@ -13,58 +21,53 @@ const Project = ({ item }) => {
       whileHover="visible"
       transition={{ duration: 0.9, ease: 'easeInOut'}}
       variants={{
-      visible: { x: 0, scale: 0.9 },
-      hidden: { x: 6, scale: 0.89 }
+        visible: { x: 0, scale: 0.9 },
+        hidden: { x: 6, scale: 0.89 }
       }}
       className='project-card'
+      
     >
-      <img 
-        src={item.image} 
-        alt="project image" 
-        className="image"
-        width='auto'
-        height='auto'
-      />
-      <div className="details">
-        <h2>{item.title}</h2>
-        <p className='description'>{item.description}</p>
-        <div className="buttons">
-          <a href={item.source} rel="noreferrer" target="_blank">
-            <button className="source">source
-            </button>
-          </a>
-          <a href={item.live_demo} rel="noreferrer" target="_blank">
-            <button className="live-demo">live-demo
-            </button>
-          </a>
+      <motion.div
+        ref={ref}
+        style={{
+          scale: scaleProgress,
+          opacity: opacityProgress
+        }}
+        className="wrapper"
+      >
+        <img
+          src={item.image}
+          alt="project image"
+          className="image"
+          width='100%'
+          height='100%'
+        />
+        <div className="details">
+          <h2>{item.title}</h2>
+          <p className='description'>{item.description}</p>
+          <div className="buttons">
+            <a href={item.source} rel="noreferrer" target="_blank">
+              <button className="source">source
+              </button>
+            </a>
+            <a href={item.live_demo} rel="noreferrer" target="_blank">
+              <button className="live-demo">live-demo
+              </button>
+            </a>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </motion.section>
   )
 
 }
 
 const ProjectList = () => {
-  
-  const ref = useRef(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start 300px', 'end end'],
-  });
 
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 1200,
-    damping: 70,
-  });
   return (
     <div>
 
-      <motion.ul ref={ref} className="list">
-        <motion.div 
-            className="progress-bar"
-            style={{ scaleX }}
-          />
+      <motion.ul className="list">
           {
             data.projects.map((item) => (
               <li 

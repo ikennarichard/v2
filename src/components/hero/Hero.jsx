@@ -1,86 +1,82 @@
-import './hero.sass';
-import { useContext } from 'react';
-import { ThemeContext } from '../../context/ThemeContext';
-import { motion } from 'framer-motion';
-
-const textVariants = {
-  initial: {
-    x: -10,
-    opacity: 0.3
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 2,
-      staggerChildren: 0.1,
-    },
-  },
-}
+import "./hero.sass";
+import { useContext, useRef } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
+import { motion, useTransform } from "framer-motion";
+import { useScroll } from "framer-motion";
 
 
 const sliderVariants = {
   initial: {
-    x: '20%',
+    x: "20%",
     opacity: 0,
   },
   animate: {
-    x: '-300%',
+    x: "-300%",
     opacity: [0, 0.7, 0.9],
     transition: {
       repeat: Infinity,
-      repeatType: 'mirror',
+      repeatType: "mirror",
       duration: 9,
-      delay: 2
+      delay: 2,
     },
   },
-}
+};
 
 const Hero = () => {
+  const ref = useRef();
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const scaleProgress = useTransform(scrollYProgress, [0, 1], [1, 0.6]);
+  const opacityProgress = useTransform(scrollYProgress, [0, 1], [1, 0]);
+
   const { isDarkMode } = useContext(ThemeContext);
+  
   return (
     <div className="hero">
       <div className="wrapper">
-        <motion.div 
+        <motion.div
           className="text-container"
-          variants={textVariants}
-          initial='initial'
-          animate='animate'
+          ref={ref}
+          style={{
+            scale: scaleProgress,
+            opacity: opacityProgress,
+          }}
         >
-          <motion.p 
-            variants={textVariants}
-          >Hello, my name is</motion.p>
-          <motion.h2 variants={textVariants}>IKENNA RICHARD</motion.h2>
-          <motion.p variants={textVariants} style={{width: '65%', margin: '0 auto'}}>
+          <p>Hello, my name is</p>
+          <h2>IKENNA RICHARD</h2>
+          <p
+          >
             Frontend Engineer
-          </motion.p>
-          <motion.div 
+          </p>
+          <motion.div
             className={`buttons 
-            ${isDarkMode ?  'border-dark' : null}`}
-            variants={textVariants}
+            ${isDarkMode ? "border-dark" : null}`}
             style={{
-              margin: '2.6em auto'
+              margin: "2.6em auto",
             }}
           >
             <a href="#contact">
-              <button 
-                className={isDarkMode ?  'text-dark' : null}
-              >
+              <button className={isDarkMode ? "text-dark" : null}>
                 GET IN TOUCH
               </button>
             </a>
           </motion.div>
         </motion.div>
       </div>
-      <motion.div className="sliding-text-container"
+      <motion.div
+        className="sliding-text-container"
         variants={sliderVariants}
-        initial='initial'
-        animate='animate'
+        initial="initial"
+        animate="animate"
       >
         Content is like water
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

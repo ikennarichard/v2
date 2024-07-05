@@ -1,32 +1,28 @@
 import Social from "../social/Social"
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import './contact.sass'
-
-const variant = {
-  initial: {
-    y: -10,
-    opacity: 0
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      staggerChildren: 0.1
-    }
-  }
-}
+import { useRef } from "react"
 
 const Contact = () => {
+  const ref = useRef()
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "center"],
+  });
 
+  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   return (
     <motion.div 
-      initial='initial'
-      whileInView='animate'
-      variants={variant}
+      style={{
+        scale: scaleProgress,
+        opacity: opacityProgress
+      }}
+      ref={ref}
       className='contact'
     >
         <motion.div
+          
           initial={{ x: 6}}
           whileInView={{
             x: 0
