@@ -5,101 +5,91 @@
   @include applyBackgroundColors(black)
   transition: background-color 0.5s ease-in-out
 
-.progress-bar
-  @include applyBackgroundColors(white)
-  background-color: black
-  z-index: 1
-  position: fixed
-  top: 0
-  left: 0
-  right: 0
-  height: 6px
-  transform-origin: 0%
-
-  @include mobile
-  @include tablet
-    display: none
-
 .project-card
   display: flex
-  align-items: center
-  justify-content: center
+  max-width: 1300px
+  margin-inline: auto
+  overflow: hidden
 
-  
-  @include mobile
-    flex-direction: column
-
-  .image
-    object-fit: cover
-    object-position: 50% 50%
-    max-width: 350px
-    height: 400px
-    filter: grayscale(100%)
-    transition: filter 0.2s ease-in-out
-    border-radius: 6px 0 0 6px
-  
-    @include mobile
-      object-position: 0% 0%
-      min-width: 350px
-      height: 300px
-      border-radius: 6px 6px 0 0 
-
-  .image:hover
-    filter: grayscale(0)
-
-  .details
-    @include applyBackgroundColors(white)
-    @include applyTextColors(black)
+  .wrapper
     display: flex
-    flex-direction: column
-    border-radius: 0 6px 6px 0
-    gap: 10px
-    max-width: 50%
-    height: 400px
-    color: white
-    padding: 18px
-    background-color: rgb(22,22,22)
-
+    align-items: center
+    justify-content: center
+    margin: 0 auto
     @include mobile
+      flex-direction: column
+
+    .image
+      object-fit: cover
+      object-position: 50% 50%
       max-width: 350px
-      height: auto
-      border-radius: 0 0 6px 6px 
+      height: 400px
+      filter: grayscale(100%)
+      transition: filter 0.2s ease-in-out
+      border-radius: 6px 0 0 6px
+    
+      @include mobile
+        object-position: 0% 0%
+        min-width: 350px
+        height: 300px
+        border-radius: 6px 6px 0 0 
 
-    h2
-      font-size: 3rem
+    .image:hover
+      filter: grayscale(0)
 
-    .buttons
+    .details
+      @include applyBackgroundColors(white)
+      @include applyTextColors(black)
       display: flex
       flex-direction: column
-      gap: 12px
-      
-
-    button
-      @include applyTextColors(black)
-      position: relative
-      appearance: none
-      font-size: 2rem
+      border-radius: 0 6px 6px 0
+      gap: 10px
+      max-width: 50%
+      height: 400px
       color: white
-      background: none
-      border: none
-      outline: none
-      width: fit-content
-      cursor: pointer
-      transition: transform 0.3s ease-in
+      padding: 18px
+      background-color: rgb(22,22,22)
 
-    button:hover
-      transform: translate3d(1px, 0, 0)
-    
-    .source:after, .live-demo:after
-      content: ''
-      position: absolute
-      right: 0
-      left: 9px
-      bottom: 10px
-      transform: scaleX(0)
-      border: 3px solid tomato
-      transform-origin: left
-      transition: transform 0.3s ease-in-out
-    
-    .source:hover:after, .live-demo:hover:after
-      transform: scaleX(1)
+      @include mobile
+        max-width: 350px
+        height: auto
+        border-radius: 0 0 6px 6px 
+
+      h2
+        font-size: 3rem
+
+      .buttons
+        display: flex
+        flex-direction: column
+        gap: 12px
+        
+
+      button
+        @include applyTextColors(black)
+        position: relative
+        appearance: none
+        font-size: 2rem
+        color: white
+        background: none
+        border: none
+        outline: none
+        width: fit-content
+        cursor: pointer
+        transition: transform 0.3s ease-in
+
+      button:hover
+        transform: translate3d(1px, 0, 0)
+      
+      .source:after, .live-demo:after
+        content: ''
+        position: absolute
+        right: 0
+        left: 9px
+        bottom: 10px
+        transform: scaleX(0)
+        border: 3px solid tomato
+        transform-origin: left
+        transition: transform 0.3s ease-in-out
+      
+      .source:hover:after, .live-demo:hover:after
+        transform: scaleX(1)

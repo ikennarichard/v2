@@ -11,16 +11,18 @@ $paradise-pink: #E35461
 
   .wrapper
     display: grid
-    grid-template-columns: repeat(2, auto)
-    place-items: center
+    grid-template-columns: repeat(2, 1fr)
+    align-content: center
     height: 100%
+    max-width: 1300px
+    margin-inline: auto
 
     @include mobile
       display: flex
       flex-direction: column-reverse
       justify-content: center
       padding-inline-start: 0.9em
-      padding-block-start: 1em
+      padding-block-start: 0.3em
       gap: 20px
       height: 100%
 

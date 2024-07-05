@@ -1,9 +1,17 @@
+@use '../../styles/mixins'
 .navbar
   height: 100px
+  position: fixed
+  width: 100%
+  border-bottom: 1px solid rgba(121, 121, 121, 0.089)
+  top: 0
+  right: 0
+  bottom: 0
   padding-inline: 1em
+  z-index: 9
+  transition: background-color 0.5s ease-in-out
   
   .wrapper
-    max-width: 1366px
     margin: 0 auto
     display: flex
     align-items: center

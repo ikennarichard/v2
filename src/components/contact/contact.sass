@@ -8,7 +8,8 @@
   align-items: center
   gap: 30px
   height: 100vh
-  max-width: 1366px
+  max-width: 1300px
+  margin-inline: auto
 
   @include mobile
     flex-direction: column
@@ -35,9 +36,11 @@
       line-height: 50px
 
       @include mobile
-        display: none
+        width: 100%
+        margin-inline: auto
       
     .contact-item
+      margin-block-start: 1.2em
       h2
         font-size: 1.6rem
         font-weight: bold
@@ -70,7 +73,7 @@
         color: black
         font-size: 1rem
         border-radius: 9px
-        box-shadow: #6c6c6c 0.1px 0.3px 1px 0.3px
+        box-shadow: 0.1px 0.3px 2px 0px #1b1b1b46 
       
       textarea
         resize: none
