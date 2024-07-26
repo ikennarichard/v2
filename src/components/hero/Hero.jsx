@@ -3,6 +3,7 @@ import { useContext, useRef } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { motion, useTransform } from "framer-motion";
 import { useScroll } from "framer-motion";
+import TimeDisplay from "../time-display/time-display";
 
 
 const sliderVariants = {
@@ -44,8 +45,10 @@ const Hero = () => {
           style={{
             scale: scaleProgress,
             opacity: opacityProgress,
+            marginBlockStart: '1rem',
           }}
         >
+          <TimeDisplay />
           <p>Hello, my name is</p>
           <h2>IKENNA RICHARD</h2>
           <p
