@@ -34,7 +34,7 @@ const About = () => {
               <p>JavaScript / TypeScript</p>
             </li>
             <li>
-              <p>Reactjs/ React Native</p>
+              <p>Reactjs</p>
             </li>
             <li>
               <p>Nextjs</p>
