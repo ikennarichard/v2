@@ -1,9 +1,9 @@
 import "./hero.sass";
 import { useContext, useRef } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
-import { delay, motion, useTransform } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
 import { useScroll } from "framer-motion";
-import TimeDisplay from "../time-display/time-display";
+// import TimeDisplay from "../time-display/time-display";
 
 const letterVariants = {
   hidden: { x: -100, opacity: 0, rotate: -10 },
