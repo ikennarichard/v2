@@ -20,14 +20,14 @@ const letterVariants = {
 };
 
 const jobTitleVariants = {
-  hidden: { y: 20, opacity: 0, scale: 1.9 },
+  hidden: { y: 10, opacity: 0, scale: 1.1 },
   visible: {
     y: 0,
     opacity: 1,
     scale: 1,
     transition: {
-      delay: 0.9,
-      ease: [0.175, 0.885, 0.32, 1.275],
+      delay: 1.2,
+      ease: "easeInOut",
       duration: 1,
     },
   },
