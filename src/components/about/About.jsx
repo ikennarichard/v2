@@ -77,10 +77,11 @@ const About = () => {
           <h2>ABOUT</h2>
           <div className="text">
             <p>
-              Hi, i am water, a software engineer. HNG-trained and obsessed with
-              high-performance UIs with precision & style, I make sure every UI
-              feels just right. I tweak, tinker, and optimize—because great
-              experiences shouldn’t just work, they should wow! 🚀
+              Hi, I am Ikenna Richard, a software engineer based in Nigeria.
+              HNG-trained and obsessed with high-performance UIs with precision
+              & style, I make sure every UI feels just right. I tweak, tinker,
+              and optimize—because great experiences shouldn’t just work, they
+              should wow! 🚀
             </p>
 
             <p>
