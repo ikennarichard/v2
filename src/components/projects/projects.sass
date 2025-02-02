@@ -2,7 +2,7 @@
 @import '../../styles/mixins'
 
 .project
-  background: url(/images/Thur.svg) no-repeat 98% 80% / 400px
+  // background: url(/images/Thur.svg) no-repeat 98% 80% / 400px
   height: 100vh
   filter: grayscale(100%)
 
@@ -48,3 +48,9 @@
   @include applyTextColors(white)
   width: fit-content
   font-size: 4rem
+
+.pendulum
+  @include mobile
+      display: none
+  @include tablet
+      display: none
