@@ -25,6 +25,7 @@ const About = () => {
   return (
     <div className="about">
       <div className="wrapper">
+       
         <div className="info">
           <ul>
             <li>
@@ -41,6 +42,15 @@ const About = () => {
             </li>
             <li>
               <p>Go</p>
+            </li>
+            <li>
+              <p>Firebase</p>
+            </li>
+            <li>
+              <p>Supabase</p>
+            </li>
+            <li>
+              <p>Zustand</p>
             </li>
             <li>
               <p>Redux</p>
