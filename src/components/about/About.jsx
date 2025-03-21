@@ -38,6 +38,9 @@ const About = () => {
               <p>Reactjs</p>
             </li>
             <li>
+              <p>React Native</p>
+            </li>
+            <li>
               <p>Nextjs</p>
             </li>
             <li>

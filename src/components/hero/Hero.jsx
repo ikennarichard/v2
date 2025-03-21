@@ -105,7 +105,7 @@ const Hero = () => {
             animate="visible"
             variants={jobTitleVariants}
           >
-            FullStack Apprentice
+            Software Développeur 👷
           </motion.p>
           <motion.div
             className={`buttons 
