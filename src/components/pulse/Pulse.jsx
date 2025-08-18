@@ -6,7 +6,7 @@ const AUDIO_VOLUME = 0.011;
 
 const Pulse = () => {
   const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [hasPlayed, setHasPlayed] = useState(false);
 
   useEffect(() => {
@@ -51,10 +51,10 @@ const Pulse = () => {
     setIsPlaying((prev) => !prev);
   }, [isPlaying]);
 
-  useEffect(() => {
-    document.body.addEventListener("click", playAudio);
-    return () => document.body.removeEventListener("click", playAudio);
-  }, [playAudio]);
+  // useEffect(() => {
+  //   document.body.addEventListener("click", playAudio);
+  //   return () => document.body.removeEventListener("click", playAudio);
+  // }, [playAudio]);
 
   useEffect(() => {
     const audio = audioRef.current;
