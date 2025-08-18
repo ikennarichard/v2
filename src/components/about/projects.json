@@ -3,7 +3,6 @@
     {
     "id": 1,
     "title": "Expenses Chart",
-    "description": "Intro section of a website with a navigation menu that sets the tone for the rest of the site. It includes a call to action, and a navigation menu to guide users to different sections of the site.",
     "source": "https://github.com/ikennarichard/Expenses-chart-component",
     "live_demo": "https://ikennarichard.github.io/Expenses-chart-component"
     },
@@ -11,7 +10,6 @@
     {
       "id": 2,
       "title": "Space Tourism",
-      "description": "This project offers a user-friendly and informative platform for exploring global data on countries, making it accessible to users with diverse interests and needs. Built with Reactjs",
       "source": "https://github.com/ikennarichard/Space-tourism",
       "live_demo": "https://rich-space.netlify.app/"
     },
@@ -19,7 +17,6 @@
     {
       "id": 3,
       "title": "Weather App",
-      "description": "This is a simple quiz app. Built with Vuejs, Vue Router and Pinia",
       "source": "https://github.com/ikennarichard/weather-app",
       "live_demo": "https://github.com/ikennarichard/weather-app"
     }
