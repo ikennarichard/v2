@@ -1,109 +1,265 @@
-import { motion } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { useMemo, useRef } from "react";
 import "./about.sass";
-import { useRef } from "react";
-import { useScroll, useTransform } from "framer-motion";
+import data from "./projects.json";
+
+const techStack = [
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Node.js",
+  "React Native",
+  "Tailwind CSS",
+  "Prisma",
+  "Vercel",
+  "Docker",
+  "Git",
+];
+
+// Enhanced animation variants
+const containerVariants = {
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const skillVariants = {
+  initial: {
+    opacity: 0,
+    y: 30,
+    scale: 0.8,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 10,
+    },
+  },
+  hover: {
+    scale: 1.05,
+    y: -2,
+    transition: {
+      type: "spring",
+      stiffness: 400,
+      damping: 25,
+    },
+  },
+};
+
+const linkVariants = {
+  initial: {
+    opacity: 0,
+    x: -20,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 12,
+    },
+  },
+  hover: {
+    x: 10,
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 20,
+    },
+  },
+};
 
 const About = () => {
   const ref = useRef();
+  const skillsRef = useRef();
+  const linksRef = useRef();
+
+  const isSkillsInView = useInView(skillsRef, { once: true, margin: "-100px" });
+  const isLinksInView = useInView(linksRef, { once: true, margin: "-50px" });
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "center", "end start"],
+    offset: ["start end", "end start"],
+    layoutEffect: false,
   });
 
+  // Enhanced scroll animations
   const scaleProgress = useTransform(
     scrollYProgress,
-    [0, 0.5, 0.6, 1],
-    [0.8, 1, 1, 0.6]
+    [0, 0.3, 0.7, 1],
+    [0.7, 1, 1, 0.8]
   );
+
   const opacityProgress = useTransform(
     scrollYProgress,
-    [0, 0.5, 1],
-    [0.8, 1, 0.5]
+    [0, 0.2, 0.8, 1],
+    [0.3, 1, 1, 0.6]
+  );
+
+  const yProgress = useTransform(scrollYProgress, [0, 0.5, 1], [50, 0, -50]);
+
+  const rotateProgress = useTransform(scrollYProgress, [0, 0.5, 1], [-2, 0, 2]);
+
+  const projectLinks = useMemo(
+    () =>
+      data.projects.map((item, index) => (
+        <motion.p
+          key={item.id}
+          variants={linkVariants}
+          initial='initial'
+          animate='animate'
+          whileHover="hover"
+          custom={index}
+          style={{
+            cursor: "pointer",
+            padding: "4px 0",
+          }}
+        >
+          <a
+            href={item.live_demo}
+            className="project-links"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {item.title.toLowerCase()}
+          </a>
+        </motion.p>
+      )),
+    []
   );
 
   return (
     <div className="about">
       <div className="wrapper">
-       
         <div className="info">
-          <ul>
-            <li>
-              <p>HTML/CSS</p>
-            </li>
-            <li>
-              <p>JavaScript / TypeScript</p>
-            </li>
-            <li>
-              <p>Reactjs</p>
-            </li>
-            <li>
-              <p>React Native</p>
-            </li>
-            <li>
-              <p>Nextjs</p>
-            </li>
-            <li>
-              <p>Go</p>
-            </li>
-            <li>
-              <p>Firebase</p>
-            </li>
-            <li>
-              <p>Supabase</p>
-            </li>
-            <li>
-              <p>Zustand</p>
-            </li>
-            <li>
-              <p>Redux</p>
-            </li>
-            <li>
-              <p>Tailwind CSS</p>
-            </li>
-            <li>
-              <p>SASS</p>
-            </li>
-            <li>
-              <p>Git / Github</p>
-            </li>
-            <li>
-              <p>Jest / Vitest / React Testing Library</p>
-            </li>
-          </ul>
-          <span
-            style={{
-              fontSize: "6rem",
-            }}
+          {/* Enhanced skills section */}
+          <motion.ul
+            ref={skillsRef}
+            className="tech-list"
+            variants={containerVariants}
+            initial="initial"
+            animate={isSkillsInView ? "animate" : "initial"}
           >
-            ...
-          </span>
+            {techStack.map((tech, index) => (
+              <motion.li
+                key={tech}
+                variants={skillVariants}
+                custom={index}
+                style={{
+                  padding: "8px",
+                  textAlign: "center",
+                  transition: "all 0.3s ease",
+                }}
+              >
+                <p>{tech}</p>
+              </motion.li>
+            ))}
+          </motion.ul>
+
+          <motion.div
+            ref={linksRef}
+            initial="initial"
+            animate={isLinksInView ? "animate" : "initial"}
+            variants={containerVariants}
+          >
+            <motion.h3
+              initial={{ opacity: 0, y: 2 }}
+              animate={
+                isLinksInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 1 }
+              }
+              transition={{ delay: 0.2 }}
+              style={{
+                marginBottom: "10px",
+                fontSize: "1.5rem",
+                fontWeight: "700",
+              }}
+            >
+              Selected Work
+            </motion.h3>
+            <div className="links-list">{projectLinks}</div>
+          </motion.div>
         </div>
+
         <motion.div
           className="details"
           ref={ref}
           style={{
             scale: scaleProgress,
             opacity: opacityProgress,
+            y: yProgress,
+            rotate: rotateProgress,
+            transformOrigin: "center center",
+          }}
+          initial={{
+            willChange: "transform, opacity",
+            filter: "blur(10px)",
+          }}
+          animate={{
+            filter: "blur(0px)",
+            transition: { duration: 1, ease: "easeOut" },
+          }}
+          onAnimationComplete={() => {
+            if (ref.current) {
+              ref.current.style.willChange = "auto";
+            }
           }}
         >
-          <h2>ABOUT</h2>
-          <div className="text">
-            <p>
-              Hi, I am Ikenna Richard, a software engineer based in Nigeria.
-              HNG-trained and obsessed with high-performance UIs with precision
-              & style, I make sure every UI feels just right. I tweak, tinker,
-              and optimize—because great experiences shouldn’t just work, they
-              should wow! 🚀
-            </p>
+          <motion.h2
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
+            style={{
+              fontSize: "clamp(3rem, 8vw, 6rem)",
+              fontWeight: "900",
+              margin: "0 0 1rem 0",
+              letterSpacing: "-0.05em",
+            }}
+          >
+            ABOUT
+          </motion.h2>
 
-            <p>
-              I&apos;ve also gained valuable experience with backend
-              technologies like Ruby on Rails, Go, and PostgreSQL. My approach
-              is holistic; I believe in collaboration 🎭, from UI/UX designers
-              to backend developers, to create a cohesive and impactful
-              product.⚡
-            </p>
+          <div className="text">
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              style={{
+                fontSize: "1.1rem",
+                lineHeight: "1.7",
+                marginBottom: "1.5rem",
+              }}
+            >
+              Hey! I'm Richard — a curious builder, problem-solver, and eternal
+              tinkerer. I love dreaming up ideas and turning them into tools,
+              products, and experiments that make life smoother (and a little
+              more meaningful).
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+              style={{
+                fontSize: "1.1rem",
+                lineHeight: "1.7",
+              }}
+            >
+              I'm always excited to collaborate with people who want to build
+              cool things. When I'm not deep in code, you'll probably find me
+              exploring design or learning new ways to level up my skills.
+              Always up for connecting over coffee.
+            </motion.p>
           </div>
         </motion.div>
       </div>

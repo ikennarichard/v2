@@ -3,7 +3,6 @@ import "./projects.sass";
 import data from "./projects.json";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-// import DoublePendulum from "../pendulum";
 
 const variants = {
   initial: {
