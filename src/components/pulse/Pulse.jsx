@@ -1,63 +1,71 @@
-import { useState, useEffect } from 'react';
-import './pulse.sass'
+import { useCallback, useEffect, useState } from "react";
+import "./pulse.sass";
 
 const Pulse = () => {
-  const [audio] = useState(new Audio('./Psalm-Trees-fever.mp3'));
-  const [playing, setPlaying] = useState(true);
-  const [played, setPlayed] = useState(null);
+  const [audio] = useState(new Audio("./Psalm-Trees-fever.mp3"));
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [hasPlayed, setHasPlayed] = useState(null);
+  const AUDIO_VOLUME = 0.00391;
 
-  const toggle = () => {
-    if (playing) {
+  const playAudio = useCallback(
+    (e) => {
+      if (e.target.classList.contains("pulsing-ui")) return;
+
+      if (hasPlayed) return;
+
+      audio.volume = AUDIO_VOLUME;
+      audio
+        .play()
+        .catch((error) => console.error("Audio playback failed:", error));
+      setHasPlayed(true);
+    },
+    [hasPlayed, audio]
+  );
+
+  const togglePlay = useCallback(() => {
+    if (isPlaying) {
       audio.pause();
-      setPlaying(false);
     } else {
-      audio.play();
-      setPlaying(true);
+      audio.volume = AUDIO_VOLUME;
+      audio
+        .play()
+        .catch((error) => console.error("Audio playback failed:", error));
     }
-  }
+    setIsPlaying((prev) => !prev);
+  }, [isPlaying, audio]);
 
   useEffect(() => {
-    function initialPlay(e) {
-      if (e.target.classList.contains('pulsing-ui') == false) {
-        if(played) {
-          return null;
-        } else {
-          audio.volume = 0.021
-          audio.play()
-          setPlayed(true);
-        }
-      }
-    } 
-    document.body.addEventListener('click', initialPlay)
-
-    return () => {
-      document.body.removeEventListener('click', initialPlay)
-    }
-
-    },[played]);
+    document.body.addEventListener("click", playAudio);
+    return () => document.body.removeEventListener("click", playAudio);
+  }, [playAudio]);
 
   useEffect(() => {
-    audio.addEventListener('ended', () => {
-     setPlayed(false);
-    })
+    const handleAudioEnd = () => setHasPlayed(false);
+    audio.addEventListener("ended", handleAudioEnd);
+    return () => audio.removeEventListener("ended", handleAudioEnd);
+  }, [audio]);
+
+  useEffect(() => {
     return () => {
-      audio.removeEventListener('ended', () => setPlayed(false));
+      audio.pause();
+      audio.currentTime = 0;
     };
-  }, []);
+  }, [audio]);
 
   return (
     <div>
-      <button 
-        type="button" 
-        className={`site-volume ${playing ? 'is-playing' : null}`} 
+      <button
+        type="button"
+        aria-label={isPlaying ? "Pause sound" : "Play sound"}
+        className={`site-volume ${isPlaying ? "is-playing" : null}`}
         title="Toggle sound"
-        onClick={() => toggle()}
-        >
+        onClick={togglePlay}
+      >
         <span className="u-visually-hidden">Toggle sound</span>
         <span className="pulsing-ui"></span>
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default Pulse
+export default Pulse;

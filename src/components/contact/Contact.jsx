@@ -199,7 +199,6 @@ const Contact = () => {
         >
           <h3
             style={{
-              color: "white",
               fontSize: "1.2rem",
               fontWeight: "600",
               marginBottom: "0.5rem",
@@ -313,8 +312,8 @@ const Contact = () => {
                 fontSize: "0.9rem",
                 background:
                   submitStatus === "success"
-                    ? "rgba(34, 197, 94, 0.1)"
-                    : "rgba(239, 68, 68, 0.1)",
+                    ? "rgba(34, 197, 94, 0.9)"
+                    : "rgba(239, 68, 68, 0.9)",
                 color: "white",
                 border: `1px solid ${
                   submitStatus === "success"

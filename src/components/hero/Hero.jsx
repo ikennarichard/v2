@@ -1,8 +1,8 @@
-import "./hero.sass";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useContext, useRef } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
-import { motion, useTransform } from "framer-motion";
-import { useScroll } from "framer-motion";
+import "./hero.sass";
+import SlidingText from "./SlidingText";
 // import TimeDisplay from "../time-display/time-display";
 
 const letterVariants = {
@@ -57,16 +57,16 @@ const renderLetters = (name) => {
 
 const sliderVariants = {
   initial: {
-    x: "20%",
+    x: "10%",
     opacity: 0,
   },
   animate: {
-    x: "-300%",
+    x: "-1000%",
     opacity: [0, 0.7, 0.9],
     transition: {
       repeat: Infinity,
       repeatType: "mirror",
-      duration: 9,
+      duration: 20,
       delay: 2,
     },
   },
@@ -122,14 +122,7 @@ const Hero = () => {
           </motion.div>
         </motion.div>
       </div>
-      <motion.div
-        className="sliding-text-container"
-        variants={sliderVariants}
-        initial="initial"
-        animate="animate"
-      >
-        Content is like water
-      </motion.div>
+      <SlidingText />
     </div>
   );
 };
