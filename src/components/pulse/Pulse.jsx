@@ -1,38 +1,55 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import "./pulse.sass";
 
+const AUDIO_SRC = "./Psalm-Trees-fever.mp3";
+const AUDIO_VOLUME = 0.011;
+
 const Pulse = () => {
-  const [audio] = useState(new Audio("./Psalm-Trees-fever.mp3"));
+  const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [hasPlayed, setHasPlayed] = useState(null);
-  const AUDIO_VOLUME = 0.00391;
+  const [hasPlayed, setHasPlayed] = useState(false);
+
+  useEffect(() => {
+    audioRef.current = new Audio(AUDIO_SRC);
+    audioRef.current.volume = AUDIO_VOLUME;
+
+    return () => {
+      audioRef.current?.pause();
+      audioRef.current = null;
+    };
+  }, []);
 
   const playAudio = useCallback(
     (e) => {
-      if (e.target.classList.contains("pulsing-ui")) return;
-
-      if (hasPlayed) return;
-
-      audio.volume = AUDIO_VOLUME;
-      audio
-        .play()
-        .catch((error) => console.error("Audio playback failed:", error));
-      setHasPlayed(true);
+      if (!(e.target).classList.contains("pulsing-ui")) {
+        if (!hasPlayed && audioRef.current) {
+          audioRef.current
+            .play()
+            .catch((error) =>
+              console.error("Audio playback failed:", error)
+            );
+          setHasPlayed(true);
+        }
+      }
     },
-    [hasPlayed, audio]
+    [hasPlayed]
   );
 
   const togglePlay = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
     if (isPlaying) {
       audio.pause();
     } else {
-      audio.volume = AUDIO_VOLUME;
       audio
         .play()
-        .catch((error) => console.error("Audio playback failed:", error));
+        .catch((error) =>
+          console.error("Audio playback failed:", error)
+        );
     }
     setIsPlaying((prev) => !prev);
-  }, [isPlaying, audio]);
+  }, [isPlaying]);
 
   useEffect(() => {
     document.body.addEventListener("click", playAudio);
@@ -40,24 +57,21 @@ const Pulse = () => {
   }, [playAudio]);
 
   useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
     const handleAudioEnd = () => setHasPlayed(false);
     audio.addEventListener("ended", handleAudioEnd);
-    return () => audio.removeEventListener("ended", handleAudioEnd);
-  }, [audio]);
 
-  useEffect(() => {
-    return () => {
-      audio.pause();
-      audio.currentTime = 0;
-    };
-  }, [audio]);
+    return () => audio.removeEventListener("ended", handleAudioEnd);
+  }, []);
 
   return (
     <div>
       <button
         type="button"
         aria-label={isPlaying ? "Pause sound" : "Play sound"}
-        className={`site-volume ${isPlaying ? "is-playing" : null}`}
+        className={`site-volume ${isPlaying ? "is-playing" : ""}`}
         title="Toggle sound"
         onClick={togglePlay}
       >
