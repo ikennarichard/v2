@@ -3,7 +3,6 @@ import { useContext, useRef } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import "./hero.sass";
 import SlidingText from "./SlidingText";
-// import TimeDisplay from "../time-display/time-display";
 
 const letterVariants = {
   hidden: { x: -100, opacity: 0, rotate: -10 },
@@ -53,23 +52,6 @@ const renderLetters = (name) => {
       ))}
     </motion.span>
   );
-};
-
-const sliderVariants = {
-  initial: {
-    x: "10%",
-    opacity: 0,
-  },
-  animate: {
-    x: "-1000%",
-    opacity: [0, 0.7, 0.9],
-    transition: {
-      repeat: Infinity,
-      repeatType: "mirror",
-      duration: 20,
-      delay: 2,
-    },
-  },
 };
 
 const Hero = () => {
