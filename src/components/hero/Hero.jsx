@@ -43,6 +43,9 @@ const renderLetters = (name) => {
     >
       {name.split("").map((letter, index) => (
         <motion.span
+        style={{
+          fontWeight: '900'
+        }}
           key={index}
           // className="inline-block"
           variants={letterVariants}

@@ -46,7 +46,7 @@ function App() {
       <section id="contact" className="background-dark text-dark">
         <Contact />
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

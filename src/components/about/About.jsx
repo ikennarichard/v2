@@ -150,7 +150,7 @@ const About = () => {
                 fontWeight: "700",
               }}
             >
-             Tech Stack
+              Tech Stack
             </h3>
             <motion.ul
               ref={skillsRef}
@@ -268,10 +268,8 @@ const About = () => {
                 lineHeight: "1.7",
               }}
             >
-              Lately i've been learning backend development using Node.js,
-              driven by curiosity about how interfaces are powered by server
-              architecture. I'm always excited to collaborate with people who
-              want to build cool things. Always up for connecting over coffee.
+              I'm always excited to collaborate with people who want to build
+              cool things. Always up for connecting over coffee.
             </motion.p>
           </div>
         </motion.div>

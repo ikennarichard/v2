@@ -1,59 +1,63 @@
-import { useEffect, useState } from 'react';
-import Links from './links/Links';
-import ToggleButton from './toggleButton/ToggleButton';
-import './sidebar.sass';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import { useCallback, useRef, useState, useEffect } from "react";
+import Links from "./links/Links";
+import "./sidebar.sass";
+import ToggleButton from "./toggleButton/ToggleButton";
 
 const variants = {
   open: {
-    clipPath: 'circle(1200px at 50px 50px',
+    clipPath: "circle(1200px at 50px 50px)",
     transition: {
-      type: 'spring',
+      type: "spring",
       stiffness: 20,
-    }
+    },
   },
   closed: {
-    clipPath: 'circle(23px at 50px 50px)',
+    clipPath: "circle(23px at 50px 50px)",
     transition: {
-      type: 'spring',
+      type: "spring",
       stiffness: 295,
       damping: 30,
-      delay: 0.6
+      delay: 0.6,
     },
   },
 };
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
+  const sidebarRef = useRef(null);
+
+  const handleClickOutside = useCallback((e) => {
+    if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
+      setOpen(false);
+    }
+  }, []);
 
   useEffect(() => {
-
-    function closeNav(e) {
-      const sidebar = document.querySelector('.sidebar');
-      if (!sidebar.contains(e.target)) {
-        setOpen(false);
-      }
+    if (open) {
+      document.addEventListener("click", handleClickOutside);
     }
-
-    document.body.addEventListener('click', closeNav);
 
     return () => {
-      document.body.removeEventListener('click', closeNav);
-    }
-  }, [])
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [open, handleClickOutside]);
+
+  const toggleOpen = useCallback(() => setOpen((prev) => !prev), []);
 
   return (
-    <motion.div 
-      className='sidebar'
-      initial='closed'
-      animate={open ? 'open' : 'closed'}
+    <motion.div
+      ref={sidebarRef}
+      className="sidebar"
+      initial="closed"
+      animate={open ? "open" : "closed"}
     >
-      <motion.div className='bg' variants={variants}>
-        <Links/>
+      <motion.div className="bg" variants={variants}>
+        <Links />
       </motion.div>
-      <ToggleButton setOpen={setOpen} />
+      <ToggleButton setOpen={toggleOpen} />
     </motion.div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
