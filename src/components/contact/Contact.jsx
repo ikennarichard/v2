@@ -260,7 +260,7 @@ const Contact = () => {
           initial="initial"
           animate={isFormInView ? "animate" : "initial"}
           style={{
-            marginTop: 12
+            marginTop: 50
           }}
         >
           <motion.input

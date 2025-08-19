@@ -4,14 +4,13 @@ import "./about.sass";
 import data from "./projects.json";
 
 const techStack = [
+  "React Native",
+  "Expo",
   "TypeScript",
-  "React",
+  "Tailwind CSS",
+  "React.js",
   "Next.js",
   "Node.js",
-  "React Native",
-  "Tailwind CSS",
-  "Prisma",
-  "Vercel",
   "Docker",
   "Git",
 ];
@@ -115,16 +114,15 @@ const About = () => {
     () =>
       data.projects.map((item, index) => (
         <motion.p
+          style={{
+            width: 200,
+          }}
           key={item.id}
           variants={linkVariants}
-          initial='initial'
-          animate='animate'
+          initial="initial"
+          animate="animate"
           whileHover="hover"
           custom={index}
-          style={{
-            cursor: "pointer",
-            padding: "4px 0",
-          }}
         >
           <a
             href={item.live_demo}
@@ -144,28 +142,39 @@ const About = () => {
       <div className="wrapper">
         <div className="info">
           {/* Enhanced skills section */}
-          <motion.ul
-            ref={skillsRef}
-            className="tech-list"
-            variants={containerVariants}
-            initial="initial"
-            animate={isSkillsInView ? "animate" : "initial"}
-          >
-            {techStack.map((tech, index) => (
-              <motion.li
-                key={tech}
-                variants={skillVariants}
-                custom={index}
-                style={{
-                  padding: "8px",
-                  textAlign: "center",
-                  transition: "all 0.3s ease",
-                }}
-              >
-                <p>{tech}</p>
-              </motion.li>
-            ))}
-          </motion.ul>
+          <div>
+            <h3
+              style={{
+                marginBottom: "6px",
+                fontSize: "1.5rem",
+                fontWeight: "700",
+              }}
+            >
+             Tech Stack
+            </h3>
+            <motion.ul
+              ref={skillsRef}
+              className="tech-list"
+              variants={containerVariants}
+              initial="initial"
+              animate={isSkillsInView ? "animate" : "initial"}
+            >
+              {techStack.map((tech, index) => (
+                <motion.li
+                  key={tech}
+                  variants={skillVariants}
+                  custom={index}
+                  style={{
+                    padding: "8px",
+                    textAlign: "center",
+                    transition: "all 0.3s ease",
+                  }}
+                >
+                  <span>{tech}</span>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </div>
 
           <motion.div
             ref={linksRef}
@@ -180,14 +189,20 @@ const About = () => {
               }
               transition={{ delay: 0.2 }}
               style={{
-                marginBottom: "10px",
+                marginBottom: "3px",
                 fontSize: "1.5rem",
                 fontWeight: "700",
               }}
             >
               Selected Work
             </motion.h3>
-            <div className="links-list">{projectLinks}</div>
+            <div
+              style={{
+                flexDirection: "column",
+              }}
+            >
+              {projectLinks}
+            </div>
           </motion.div>
         </div>
 
@@ -237,13 +252,11 @@ const About = () => {
               style={{
                 fontSize: "1.1rem",
                 lineHeight: "1.7",
-                marginBottom: "1.5rem",
               }}
             >
-              Hey! I'm Richard — a curious builder, problem-solver, and eternal
-              tinkerer. I love dreaming up ideas and turning them into tools,
-              products, and experiments that make life smoother (and a little
-              more meaningful).
+              Hey! I'm Richard — a mobile developer, curious builder and eternal
+              tinkerer. My journey began in frontend development, where I learnt
+              about design principles and user-centered thinking.
             </motion.p>
 
             <motion.p
@@ -255,10 +268,10 @@ const About = () => {
                 lineHeight: "1.7",
               }}
             >
-              I'm always excited to collaborate with people who want to build
-              cool things. When I'm not deep in code, you'll probably find me
-              exploring design or learning new ways to level up my skills.
-              Always up for connecting over coffee.
+              Lately i've been learning backend development using Node.js,
+              driven by curiosity about how interfaces are powered by server
+              architecture. I'm always excited to collaborate with people who
+              want to build cool things. Always up for connecting over coffee.
             </motion.p>
           </div>
         </motion.div>

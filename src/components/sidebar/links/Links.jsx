@@ -32,7 +32,7 @@ const itemVariants = {
   },
 };
 const Links = () => {
-  const links = ['home', 'about','projects', 'contact'];
+  const links = ['home', 'about','contact'];
 
   return (
     <motion.div 

@@ -44,13 +44,13 @@ $paradise-pink: #E35461
     .info
       display: flex
       flex-direction: column
-      gap: 2em
+      gap: 1em
       margin-inline-start: 2em
       align-self: center
 
       @include mobile
         width: 100%
-        align-items: center
+        // align-items: center
         margin: 0
 
       ul
@@ -60,16 +60,16 @@ $paradise-pink: #E35461
         max-width: 80%
 
         @include mobile
-          display: none
+          // display: none
 
         li
           @include applyBackgroundColors(white)
           list-style: none
-          border-radius: 18px
+          border-radius: 8px
           padding: 0.3em
           padding-inline: 0.6em
           background-color: rgb(23,23,23)
-          p
+          span
             @include applyTextColors(black)
             font-size: 0.9rem
             font-weight: 700

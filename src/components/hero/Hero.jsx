@@ -44,7 +44,7 @@ const renderLetters = (name) => {
       {name.split("").map((letter, index) => (
         <motion.span
           key={index}
-          className="inline-block"
+          // className="inline-block"
           variants={letterVariants}
         >
           {letter}
@@ -81,13 +81,26 @@ const Hero = () => {
         >
           {/* <TimeDisplay /> */}
           <p>Hello, my name is</p>
-          <h2> {renderLetters("IKENNA RICHARD")}</h2>
+          <motion.h2
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
+            style={{
+              fontSize: "clamp(3rem, 6vw, 6rem)",
+              fontWeight: "900",
+              margin: "0 0 1rem 0",
+              letterSpacing: "-0.1px",
+            }}
+          >
+            {" "}
+            {renderLetters("IKENNA RICHARD")}
+          </motion.h2>
           <motion.p
             initial="hidden"
             animate="visible"
             variants={jobTitleVariants}
           >
-            Software Développeur 👷
+            Software Developer 👷
           </motion.p>
           <motion.div
             className={`buttons 
