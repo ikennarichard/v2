@@ -103,7 +103,7 @@ const Hero = () => {
             animate="visible"
             variants={jobTitleVariants}
           >
-            Software Developer 👷
+            Forntend Software Engineer
           </motion.p>
           <motion.div
             className={`buttons 

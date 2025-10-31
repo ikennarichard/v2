@@ -15,7 +15,6 @@ const techStack = [
   "Git",
 ];
 
-// Enhanced animation variants
 const containerVariants = {
   initial: { opacity: 0 },
   animate: {
@@ -93,7 +92,6 @@ const About = () => {
     layoutEffect: false,
   });
 
-  // Enhanced scroll animations
   const scaleProgress = useTransform(
     scrollYProgress,
     [0, 0.3, 0.7, 1],
@@ -141,7 +139,6 @@ const About = () => {
     <div className="about">
       <div className="wrapper">
         <div className="info">
-          {/* Enhanced skills section */}
           <div>
             <h3
               style={{
@@ -254,9 +251,8 @@ const About = () => {
                 lineHeight: "1.7",
               }}
             >
-              Hey! I'm Richard — a mobile developer, curious builder and eternal
-              tinkerer. My journey began in frontend development, where I learnt
-              about design principles and user-centered thinking.
+              Hey! I&apos;m a frontend software engineer, UI Enthusiast, curious
+              builder and eternal tinkerer.
             </motion.p>
 
             <motion.p
@@ -268,8 +264,8 @@ const About = () => {
                 lineHeight: "1.7",
               }}
             >
-              I'm always excited to collaborate with people who want to build
-              cool things. Always up for connecting over coffee.
+              I&apos;m always looking to collaborate with people who want to build
+              cool things.
             </motion.p>
           </div>
         </motion.div>
