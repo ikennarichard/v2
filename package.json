@@ -9,6 +9,9 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "engines": {
+    "node": "22.x"
+  },
   "dependencies": {
     "@react-three/fiber": "^8.17.12",
     "@types/three": "^0.172.0",
