@@ -201,17 +201,6 @@ export default function About() {
             overflow: "hidden",
           }}
         >
-          <h3
-            style={{
-              margin: "1rem 0 0.3rem 0",
-              fontSize: "1.5rem",
-              fontWeight: "700",
-              textAlign: "center",
-              marginBottom: 10
-            }}
-          >
-            Tech Stack/Works
-          </h3>
           <div
             ref={skillsRef}
             style={{
