@@ -214,36 +214,6 @@ const Contact = () => {
             oguejioforrichard@gmail.com
           </motion.span>
         </motion.div>
-
-        <motion.div
-          variants={itemVariants}
-          className="contact-item"
-          whileHover={{
-            x: 5,
-            transition: { type: "spring", stiffness: 300, damping: 25 },
-          }}
-          style={{
-            cursor: "default",
-          }}
-        >
-          <h3
-            style={{
-              fontSize: "1.2rem",
-              fontWeight: "600",
-              marginBottom: "0.5rem",
-            }}
-          >
-            Phone
-          </h3>
-          <motion.span
-            style={{
-              fontSize: "1rem",
-            }}
-          >
-            +2347085748219
-          </motion.span>
-        </motion.div>
-
         <motion.div variants={itemVariants} className="socials">
           <Social />
         </motion.div>

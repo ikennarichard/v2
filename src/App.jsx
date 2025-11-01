@@ -1,15 +1,15 @@
-import { useContext, useEffect, useState } from "react";
-import About from "./components/about/About";
-import Contact from "./components/contact/Contact";
-import Cursor from "./components/cursor/Cursor";
-import Footer from "./components/footer/Footer";
-import Hero from "./components/hero/Hero";
-import NavBar from "./components/navBar/NavBar";
-import Pulse from "./components/pulse/Pulse";
-import SplashScreen from "./components/Splash/SplashScreen";
+import { lazy, Suspense, useContext, useEffect, useState } from "react";
 import ThemeToggle from "./components/theme-toggler/ThemeToggle";
 import { ThemeContext } from "./context/ThemeContext";
 import "./styles/app.sass";
+
+const About = lazy(() => import("./components/about/About"));
+const Cursor = lazy(() => import("./components/cursor/Cursor"));
+const Contact = lazy(() => import("./components/contact/Contact"));
+const Hero = lazy(() => import("./components/hero/Hero"));
+const Pulse = lazy(() => import("./components/pulse/Pulse"));
+const SplashScreen = lazy(() => import("./components/Splash/SplashScreen"));
+const NavBar = lazy(() => import("./components/navBar/NavBar"));
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,26 +27,27 @@ function App() {
   }
   return (
     <div className={`${isDarkMode ? "dark" : null} app-wrapper`}>
-      <ThemeToggle />
-      <Pulse />
-      <Cursor />
-      <section id="home" className="background-dark text-dark">
-        <NavBar />
-        <Hero />
-      </section>
-      <section id="about" className="background-dark text-dark">
-        <About />
-      </section>
-      {/* <section id='projects' className='background-dark text-dark'>
+      <Suspense>
+        <ThemeToggle />
+        <Pulse />
+        <Cursor />
+        <section id="home" className="background-dark text-dark">
+          <NavBar />
+          <Hero />
+        </section>
+        <section id="about" className="background-dark text-dark">
+          <About />
+        </section>
+        {/* <section id='projects' className='background-dark text-dark'>
         <Project/>
       </section>
       
         <ProjectList/> */}
 
-      <section id="contact" className="background-dark text-dark">
-        <Contact />
-      </section>
-      {/* <Footer /> */}
+        <section id="contact" className="background-dark text-dark">
+          <Contact />
+        </section>
+      </Suspense>
     </div>
   );
 }
