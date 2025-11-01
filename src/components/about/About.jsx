@@ -1,5 +1,6 @@
-import { easeIn, easeInOut, motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import "./about.sass";
 import { projects } from "./projects";
 
 export default function About() {
@@ -11,7 +12,7 @@ export default function About() {
     "Tailwind CSS",
     "Node.js",
     "GraphQL",
-    "PostgrSQL",
+    "PostgreSQL",
     "Framer Motion",
   ];
 
@@ -55,6 +56,7 @@ export default function About() {
   const projectLinks = projects.map((project, index) => (
     <motion.div
       key={project.title}
+      className="project-link"
       variants={skillVariants}
       custom={index}
       whileHover={{
@@ -66,7 +68,6 @@ export default function About() {
         alignItems: "center",
         justifyContent: "space-between",
         padding: "16px 0",
-        borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
         transition: "all 0.3s ease",
       }}
     >
@@ -79,6 +80,7 @@ export default function About() {
           whileHover={{ scale: 1.2, rotate: 360 }}
           whileTap={{ scale: 0.9 }}
           transition={{ type: "spring", stiffness: 400, damping: 15 }}
+          className="project-source"
           style={{
             display: "flex",
             alignItems: "center",
@@ -105,6 +107,7 @@ export default function About() {
             opacity: 0.7,
           }}
           aria-label="View live site"
+          className="project-source"
         >
           <svg
             width="20"
@@ -205,6 +208,7 @@ export default function About() {
               fontSize: "1.5rem",
               fontWeight: "700",
               textAlign: "center",
+              marginBottom: 10
             }}
           >
             Tech Stack/Works
@@ -233,6 +237,7 @@ export default function About() {
                 display: "flex",
                 gap: "48px",
                 width: "max-content",
+                marginBlockEnd: 12,
               }}
             >
               {[...techStack, ...techStack].map((tech, index) => (
@@ -275,7 +280,6 @@ export default function About() {
             alignItems: "center",
           }}
         >
-         
           <div
             style={{
               display: "flex",
