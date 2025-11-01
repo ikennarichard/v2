@@ -193,7 +193,6 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* Tech Stack Section - Marquee */}
         <div
           style={{
             marginBottom: "30px",
