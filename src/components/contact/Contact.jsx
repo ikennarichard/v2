@@ -1,6 +1,5 @@
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
-import Social from "../social/Social";
 import "./contact.sass";
 
 const containerVariants = {
@@ -30,20 +29,21 @@ const itemVariants = {
       stiffness: 100,
       damping: 15,
       mass: 1,
+      delay: 0.6,
     },
   },
 };
 
 const formVariants = {
-  initial: { opacity: 0, x: -30 },
+  initial: { opacity: 0, y: 40 },
   animate: {
     opacity: 1,
-    x: 0,
+    y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.9,
       ease: [0.25, 0.46, 0.45, 0.94],
-      staggerChildren: 0.08,
-      delayChildren: 0.3,
+      staggerChildren: 0.12,
+      delayChildren: 1.2,
     },
   },
 };
@@ -51,12 +51,12 @@ const formVariants = {
 const inputVariants = {
   initial: {
     opacity: 0,
-    y: 20,
-    scale: 0.98,
+    x: -30,
+    scale: 0.96,
   },
   animate: {
     opacity: 1,
-    y: 0,
+    x: 0,
     scale: 1,
     transition: {
       type: "spring",
@@ -65,7 +65,7 @@ const inputVariants = {
     },
   },
   focus: {
-    scale: 1.02,
+    scale: 1.01,
     transition: {
       type: "spring",
       stiffness: 300,
@@ -75,14 +75,16 @@ const inputVariants = {
 };
 
 const buttonVariants = {
-  initial: { opacity: 0, scale: 0.9 },
+  initial: { opacity: 0, scale: 0.85, y: 20 },
   animate: {
     opacity: 1,
     scale: 1,
+    y: 0,
     transition: {
       type: "spring",
       stiffness: 150,
       damping: 20,
+      delay: 0.2,
     },
   },
   hover: {
@@ -90,10 +92,30 @@ const buttonVariants = {
     transition: {
       type: "spring",
       stiffness: 400,
-      damping: 25,
+      damping: 20,
     },
   },
-  tap: { scale: 0.95 },
+  tap: { scale: 0.97 },
+};
+
+const headingVariants = {
+  initial: {
+    opacity: 0,
+    y: 60,
+    scale: 0.9,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 80,
+      damping: 18,
+      mass: 1.2,
+      delay: 0.2,
+    },
+  },
 };
 
 const Contact = () => {
@@ -176,7 +198,8 @@ const Contact = () => {
         animate={isTextInView ? "animate" : "initial"}
         className="text-container"
       >
-        <h2
+        <motion.h2
+          variants={headingVariants}
           style={{
             fontSize: "clamp(3rem, 7vw, 6rem)",
             fontWeight: "900",
@@ -185,7 +208,7 @@ const Contact = () => {
           }}
         >
           CONTACT
-        </h2>
+        </motion.h2>
         <motion.div
           variants={itemVariants}
           className="contact-item"
@@ -214,9 +237,6 @@ const Contact = () => {
             oguejioforrichard@gmail.com
           </motion.span>
         </motion.div>
-        <motion.div variants={itemVariants} className="socials">
-          <Social />
-        </motion.div>
       </motion.div>
 
       {/* form container */}
@@ -230,7 +250,7 @@ const Contact = () => {
           initial="initial"
           animate={isFormInView ? "animate" : "initial"}
           style={{
-            marginTop: 50
+            marginTop: 10,
           }}
         >
           <motion.input
@@ -271,9 +291,10 @@ const Contact = () => {
           </motion.button>
           {submitStatus && (
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 15, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10 }}
+              transition={{ type: "spring", stiffness: 200, damping: 25 }}
               style={{
                 marginTop: "1rem",
                 padding: "0.75rem",

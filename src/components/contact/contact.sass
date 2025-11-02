@@ -4,36 +4,33 @@
 .contact
   position: relative
   padding-inline: 3em
+  margin-top: 120px
   display: flex
-  align-items: center
-  gap: 30px
-  height: 100vh
-  max-width: 1300px
+  flex-direction: column
+  gap: 18px
+  max-width: 900px
   margin-inline: auto
 
   @include mobile
-    flex-direction: column
-    justify-content: center
     gap: 20px
+    padding-inline: 0em
+    margin-top: 120px
   
   .text-container
-    flex: 1
     display: flex
     flex-direction: column
     gap: 30px
     
     @include mobile
-      flex: 0
-      width: 100vw
       gap: 10px
       text-align: center
-      padding-block-start: 0.6em
 
     > h2
       font-size: 3rem
-      width: 70%
+      width: 100%
       font-weight: 500
       line-height: 50px
+      text-align: center
 
       @include mobile
         width: 100%
@@ -41,6 +38,7 @@
       
     .contact-item
       // margin-block-start: 1.2em
+      text-align: center
       h2
         font-size: 1.6rem
         font-weight: bold
@@ -50,10 +48,11 @@
         display: none
   
   .form-container
-    flex: 1
+    max-width: 600px
+    margin-inline: auto
+    width: 100%
     @include mobile
       flex: 0
-      width: 90vw
 
     form
       display: flex
@@ -66,7 +65,7 @@
 
       input, textarea
         @include applyTextColors(white)
-        padding: 20px
+        padding: 15px
         background-color: transparent
         border: 1px solid #909090
         outline: none
