@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { useCallback, useRef, useState, useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Links from "./links/Links";
 import "./sidebar.sass";
 import ToggleButton from "./toggleButton/ToggleButton";
+import Logo from '../';
 
 const variants = {
   open: {
@@ -56,6 +57,7 @@ const Sidebar = () => {
         <Links />
       </motion.div>
       <ToggleButton setOpen={toggleOpen} />
+      <Logo />
     </motion.div>
   );
 };

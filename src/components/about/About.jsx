@@ -8,7 +8,7 @@ export default function About() {
     "Reactjs",
     "React Native/Expo",
     "TypeScript",
-    "Next.js",
+    "React Router v7",
     "Tailwind CSS",
     "Node.js",
     "GraphQL",

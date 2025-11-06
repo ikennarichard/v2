@@ -1,4 +1,5 @@
 import { lazy, Suspense, useContext, useEffect, useState } from "react";
+import Particles from "./components/hero/Particles";
 import ThemeToggle from "./components/theme-toggler/ThemeToggle";
 import { ThemeContext } from "./context/ThemeContext";
 import "./styles/app.sass";
@@ -32,18 +33,14 @@ function App() {
         <Pulse />
         <Cursor />
         <section id="home" className="background-dark text-dark">
+
           <NavBar />
           <Hero />
+
         </section>
         <section id="about" className="background-dark text-dark">
           <About />
         </section>
-        {/* <section id='projects' className='background-dark text-dark'>
-        <Project/>
-      </section>
-      
-        <ProjectList/> */}
-
         <section id="contact" className="background-dark text-dark">
           <Contact />
         </section>

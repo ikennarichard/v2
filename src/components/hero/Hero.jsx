@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useContext, useRef } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import "./hero.sass";
-import SlidingText from "./SlidingText";
+import Particles from "./Particles";
 
 const letterVariants = {
   hidden: { x: -100, opacity: 0, rotate: -10 },
@@ -43,9 +43,9 @@ const renderLetters = (name) => {
     >
       {name.split("").map((letter, index) => (
         <motion.span
-        style={{
-          fontWeight: '900'
-        }}
+          style={{
+            fontWeight: "900",
+          }}
           key={index}
           // className="inline-block"
           variants={letterVariants}
@@ -73,6 +73,7 @@ const Hero = () => {
   return (
     <div className="hero">
       <div className="wrapper">
+      <Particles />
         <motion.div
           className="text-container"
           ref={ref}
@@ -112,9 +113,9 @@ const Hero = () => {
               margin: "2.6em auto",
             }}
           >
-            <a href="#contact">
+            <a href="#about">
               <button className={isDarkMode ? "text-dark" : null}>
-                GET IN TOUCH
+                View Work
               </button>
             </a>
           </motion.div>
