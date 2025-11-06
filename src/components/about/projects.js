@@ -1,9 +1,9 @@
 export const projects = [
     {
     "id": 1,
-    "title": "Expenses Chart",
-    "source": "https://github.com/ikennarichard/Expenses-chart-component",
-    "url": "https://ikennarichard.github.io/Expenses-chart-component"
+    "title": "Tifi.tv",
+    "source": "https://github.com/ikennarichard/",
+    "url": "https://tifi.tv"
     },
 
     {
