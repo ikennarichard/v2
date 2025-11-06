@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Links from "./links/Links";
 import "./sidebar.sass";
 import ToggleButton from "./toggleButton/ToggleButton";
-import Logo from '../';
+import Logo from '../logo/Logo';
 
 const variants = {
   open: {
