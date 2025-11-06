@@ -175,7 +175,7 @@ export default function About() {
             ABOUT
           </motion.h2>
 
-          <div className="text" style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <div className="text" style={{ maxWidth: "600px", margin: "0 auto" }}>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -187,8 +187,8 @@ export default function About() {
                 textAlign: "center",
               }}
             >
-              Hey! I&apos;m a frontend software engineer, UI Enthusiast, curious
-              builder and eternal tinkerer.
+              Hey! I build things—some for work, most for curiosity. Let&apos;s
+              connect and build something together.
             </motion.p>
           </div>
         </motion.div>
