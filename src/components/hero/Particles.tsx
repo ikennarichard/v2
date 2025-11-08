@@ -11,7 +11,6 @@ export default function Particles() {
   //   y: number | null;
   // }>({ x: null, y: null });
 
-  // Update color ref when theme changes
   useEffect(() => {
     colorRef.current = isDarkMode ? 255 : 0;
   }, [isDarkMode]);
@@ -52,7 +51,6 @@ export default function Particles() {
 
       draw() {
         if (!ctx) return;
-        // Use colorRef instead of state
         const c = colorRef.current;
         ctx.fillStyle = `rgba(${c},${c},${c},${0})`;
         ctx.beginPath();
@@ -67,7 +65,6 @@ export default function Particles() {
     );
 
     const connectParticles = () => {
-      // Use colorRef instead of state
       const c = colorRef.current;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
