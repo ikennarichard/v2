@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
-import "./bg.scss";
+import "./particles.scss";
 
 export default function Particles() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
