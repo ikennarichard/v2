@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
-import "./particles.scss";
+import "./particles.sass";
 
 export default function Particles() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -109,7 +109,7 @@ export default function Particles() {
 
   return (
     <>
-      <canvas ref={canvasRef} className="particles" />
+      <canvas ref={canvasRef} id='particles' />
     </>
   );
 }
