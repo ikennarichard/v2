@@ -6,13 +6,13 @@ import { projects } from "./projects";
 export default function About() {
   const techStack = [
     "Reactjs",
+    "Nextjs",
     "React Native/Expo",
     "TypeScript",
-    "React Router v7",
+    "React Router",
     "Tailwind CSS",
+    "SASS",
     "Node.js",
-    "GraphQL",
-    "PostgreSQL",
     "Framer Motion",
   ];
 
