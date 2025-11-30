@@ -43,12 +43,12 @@ const Links = () => {
     <motion.div className="links" variants={variants}>
       {links.map((link) => (
         <motion.a
-          href={`#${link}`}
-          key={`#${link}`}
+          href={link.title}
+          key={link.title}
           variants={itemVariants}
           className="nav-link"
         >
-          {link}
+          {link.title}
         </motion.a>
       ))}
     </motion.div>
