@@ -8,6 +8,7 @@ export default function About() {
     "Reactjs",
     "Git",
     "React Native/Expo",
+    "Socket.IO",
     "TanStack Query",
     "Firebase",
     "TypeScript",
