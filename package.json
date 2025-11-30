@@ -13,15 +13,12 @@
     "node": "22.x"
   },
   "dependencies": {
-    "@react-three/fiber": "^8.17.12",
-    "@types/three": "^0.172.0",
     "framer-motion": "^10.16.4",
     "matter-js": "^0.20.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-type-animation": "^3.2.0",
-    "sass": "^1.68.0",
-    "three": "^0.172.0"
+    "sass": "^1.68.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
