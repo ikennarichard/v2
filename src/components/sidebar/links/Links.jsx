@@ -36,7 +36,7 @@ const Links = () => {
     { title: "home", url: "#home" },
     { title: "about", url: "#about" },
     { title: "contact", url: "#contact" },
-    { title: "blog", url: "blog-tau-eight-36.vercel.app" },
+    { title: "blog", url: "https://blog-tau-eight-36.vercel.app" },
   ];
 
   return (
